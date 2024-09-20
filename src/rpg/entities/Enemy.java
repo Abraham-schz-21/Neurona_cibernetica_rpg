@@ -5,31 +5,22 @@ import rpg.enums.Stats;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Clase que representa al enemigo en el juego de RPG.
+ */
 public class Enemy {
     private String name;
     private Map<Stats, Integer> stats;
 
-    public Enemy(String name) {
+    /**
+     * Crea un nuevo enemigo con el nombre y stats dados.
+     *
+     * @param name Nombre del enemigo.
+     * @param stats Stats del enemigo.
+     */
+    public Enemy(String name, Map<Stats, Integer> stats) {
         this.name = name;
-        this.stats = new HashMap<>();
-        initializeStats();
-    }
-
-    private void initializeStats() {
-        // Inicializa los stats del enemigo con valores predeterminados
-        stats.put(Stats.HP, 100);
-        stats.put(Stats.MAX_HP, 100);
-        stats.put(Stats.MP, 30);
-        stats.put(Stats.MAX_MP, 30);
-        stats.put(Stats.ATTACK, 25);
-        stats.put(Stats.DEFENSE, 10);
-        stats.put(Stats.SPEED, 6);
-        stats.put(Stats.DEXTERITY, 3);
-        stats.put(Stats.LUCK, 2);
-        stats.put(Stats.ACCURACY, 70);
-        stats.put(Stats.EVASION, 15);
-        stats.put(Stats.CRITICAL_HIT_CHANCE, 5);
-        stats.put(Stats.CRITICAL_HIT_DAMAGE, 1);
+        this.stats = stats;
     }
 
     public String getName() {

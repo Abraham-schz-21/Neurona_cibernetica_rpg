@@ -1,5 +1,8 @@
 package rpg.enums;
 
+/**
+ * Enum que representa los diferentes stats de un personaje en el juego de RPG.
+ */
 public enum Stats {
     HP,
     MAX_HP,

@@ -4,33 +4,23 @@ import rpg.enums.Stats;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JOptionPane;
 
+/**
+ * Clase que representa al jugador en el juego de RPG.
+ */
 public class Player {
     private String name;
     private Map<Stats, Integer> stats;
 
-    public Player(String name) {
+    /**
+     * Crea un nuevo jugador con el nombre y stats dados.
+     *
+     * @param name Nombre del jugador.
+     * @param stats Stats del jugador.
+     */
+    public Player(String name, Map<Stats, Integer> stats) {
         this.name = name;
-        this.stats = new HashMap<>();
-        initializeStats();
-    }
-
-    private void initializeStats() {
-        // Inicializa los stats del jugador con valores predeterminados
-        stats.put(Stats.HP, 100);
-        stats.put(Stats.MAX_HP, 100);
-        stats.put(Stats.MP, 50);
-        stats.put(Stats.MAX_MP, 50);
-        stats.put(Stats.ATTACK, 20);
-        stats.put(Stats.DEFENSE, 10);
-        stats.put(Stats.SPEED, 8);
-        stats.put(Stats.DEXTERITY, 5);
-        stats.put(Stats.LUCK, 3);
-        stats.put(Stats.ACCURACY, 80);
-        stats.put(Stats.EVASION, 20);
-        stats.put(Stats.CRITICAL_HIT_CHANCE, 10);
-        stats.put(Stats.CRITICAL_HIT_DAMAGE, 2);
+        this.stats = stats;
     }
 
     public String getName() {
@@ -52,10 +42,10 @@ public class Player {
         }
 
         enemy.takeDamage(damage);
-        JOptionPane.showMessageDialog(null, name + " atacó a " + enemy.getName() + " por " + damage + " de daño.");
-        JOptionPane.showMessageDialog(null, "Vida restante de " + enemy.getName() + ": " + enemy.getStats().get(Stats.HP));
+        System.out.println(name + " atacó a " + enemy.getName() + " por " + damage + " de daño.");
+        System.out.println("Vida restante de " + enemy.getName() + ": " + enemy.getStats().get(Stats.HP));
         if (!enemy.isAlive()) {
-            JOptionPane.showMessageDialog(null, enemy.getName() + " ha sido derrotado.");
+            System.out.println(enemy.getName() + " ha sido derrotado.");
         }
     }
 
@@ -64,10 +54,10 @@ public class Player {
         if (stats.get(Stats.HP) < 0) {
             stats.put(Stats.HP, 0);
         }
-        JOptionPane.showMessageDialog(null, name + " recibió " + damage + " de daño.");
-        JOptionPane.showMessageDialog(null, "Vida restante de " + name + ": " + stats.get(Stats.HP));
+        System.out.println(name + " recibió " + damage + " de daño.");
+        System.out.println("Vida restante de " + name + ": " + stats.get(Stats.HP));
         if (!isAlive()) {
-            JOptionPane.showMessageDialog(null, name + " ha sido derrotado.");
+            System.out.println(name + " ha sido derrotado.");
         }
     }
 }

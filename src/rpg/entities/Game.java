@@ -1,46 +1,103 @@
 package rpg.entities;
 
-
-import rpg.entities.Enemy;
-import rpg.entities.Player;
 import rpg.enums.Stats;
 import javax.swing.JOptionPane;
+import java.util.HashMap;
+import java.util.Map;
+/**
+ * Clase que representa el juego de RPG.
+ */
 public class Game {
     private Player player;
     private Enemy enemy;
 
-
+    /**
+     * Crea un nuevo juego con el jugador y el enemigo dados.
+     *
+     * @param player Jugador del juego.
+     * @param enemy Enemigo del juego.
+     */
     public Game(Player player, Enemy enemy) {
         this.player = player;
         this.enemy = enemy;
     }
 
     public void startGame() {
-        JOptionPane.showMessageDialog(null, "¡Bienvenido al juego de RPG!");
-        JOptionPane.showMessageDialog(null, "El jugador " + player.getName() + " se enfrenta a " + enemy.getName());
+        // Mostrar estadísticas del jugador
+        String playerStats = "Estadísticas del jugador:\n";
+        playerStats += "Nombre: " + player.getName() + "\n";
+        playerStats += "HP: " + player.getStats().get(Stats.HP) + "/" + player.getStats().get(Stats.MAX_HP) + "\n";
+        playerStats += "MP: " + player.getStats().get(Stats.MP) + "/" + player.getStats().get(Stats.MAX_MP) + "\n";
+        playerStats += "Ataque: " + player.getStats().get(Stats.ATTACK) + "\n";
+        playerStats += "Defensa: " + player.getStats().get(Stats.DEFENSE) + "\n";
+        playerStats += "Velocidad: " + player.getStats().get(Stats.SPEED) + "\n";
+        playerStats += "Destreza: " + player.getStats().get(Stats.DEXTERITY) + "\n";
+        playerStats += "Suerte: " + player.getStats().get(Stats.LUCK) + "\n";
+        playerStats += "Precisión: " + player.getStats().get(Stats.ACCURACY) + "\n";
+        playerStats += "Evasión: " + player.getStats().get(Stats.EVASION) + "\n";
+        playerStats += "Probabilidad de golpe crítico: " + player.getStats().get(Stats.CRITICAL_HIT_CHANCE) + "\n";
+        playerStats += "Daño de golpe crítico: " + player.getStats().get(Stats.CRITICAL_HIT_DAMAGE) + "\n";
+
+        JOptionPane.showMessageDialog(null, playerStats, "Estadísticas del jugador", JOptionPane.INFORMATION_MESSAGE);
+
+        // Mostrar estadísticas del enemigo
+        String enemyStats = "Estadísticas del enemigo:\n";
+        enemyStats += "Nombre: " + enemy.getName() + "\n";
+        enemyStats += "HP: " + enemy.getStats().get(Stats.HP) + "/" + enemy.getStats().get(Stats.MAX_HP) + "\n";
+        enemyStats += "MP: " + enemy.getStats().get(Stats.MP) + "/" + enemy.getStats().get(Stats.MAX_MP) + "\n";
+        enemyStats += "Ataque: " + enemy.getStats().get(Stats.ATTACK) + "\n";
+        enemyStats += "Defensa: " + enemy.getStats().get(Stats.DEFENSE) + "\n";
+        enemyStats += "Velocidad: " + enemy.getStats().get(Stats.SPEED) + "\n";
+        enemyStats += "Destreza: " + enemy.getStats().get(Stats.DEXTERITY) + "\n";
+        enemyStats += "Suerte: " + enemy.getStats().get(Stats.LUCK) + "\n";
+        enemyStats += "Precisión: " + enemy.getStats().get(Stats.ACCURACY) + "\n";
+        enemyStats += "Evasión: " + enemy.getStats().get(Stats.EVASION) + "\n";
+        enemyStats += "Probabilidad de golpe crítico: " + enemy.getStats().get(Stats.CRITICAL_HIT_CHANCE) + "\n";
+        enemyStats += "Daño de golpe crítico: " + enemy.getStats().get(Stats.CRITICAL_HIT_DAMAGE) + "\n";
+
+        JOptionPane.showMessageDialog(null, enemyStats, "Estadísticas del enemigo", JOptionPane.INFORMATION_MESSAGE);
 
         while (player.isAlive() && enemy.isAlive()) {
             // Turno del jugador
             player.attack(enemy);
+            mostrarMensajeBatalla(player, enemy, true);
             if (!enemy.isAlive()) {
                 break;
             }
+
             // Turno del enemigo
             enemy.attack(player);
+            mostrarMensajeBatalla(player, enemy, false);
             if (!player.isAlive()) {
                 break;
             }
         }
 
         if (player.isAlive()) {
-            JOptionPane.showMessageDialog(null, player.getName() + " ha ganado la batalla!");
+            JOptionPane.showMessageDialog(null, player.getName() + " ha ganado la batalla!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, enemy.getName() + " ha ganado la batalla!");
+            JOptionPane.showMessageDialog(null, enemy.getName() + " ha ganado la batalla!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
+    private void mostrarMensajeBatalla(Player player, Enemy enemy, boolean esTurnoDelJugador) {
+        String mensaje = "";
+        if (esTurnoDelJugador) {
+            mensaje += player.getName() + " atacó a " + enemy.getName() + " por " + (player.getStats().get(Stats.ATTACK) - enemy.getStats().get(Stats.DEFENSE)) + " de daño.\n";
+        } else {
+            mensaje += enemy.getName() + " atacó a " + player.getName() + " por " + (enemy.getStats().get(Stats.ATTACK) - player.getStats().get(Stats.DEFENSE)) + " de daño.\n";
+        }
+        mensaje += "Vida restante de " + player.getName() + ": " + player.getStats().get(Stats.HP) + "\n";
+        mensaje += "Vida restante de " + enemy.getName() + ": " + enemy.getStats().get(Stats.HP) + "\n";
+        JOptionPane.showMessageDialog(null, mensaje, "Batalla", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+
+
     public static void main(String[] args) {
-        // Obtener los datos del jugador
+        /*
+        Obtener los datos del jugador
+         */
         String playerName = JOptionPane.showInputDialog("Ingrese el nombre del jugador: ");
         int playerHP = Integer.parseInt(JOptionPane.showInputDialog("Ingrese HP del jugador: "));
         int playerMaxHP = Integer.parseInt(JOptionPane.showInputDialog("Ingrese HP Máximo del jugador: "));
@@ -56,8 +113,10 @@ public class Game {
         int playerCriticalHitChance = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Probabilidad de Golpe Crítico del jugador: "));
         int playerCriticalHitDamage = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Daño de Golpe Crítico del jugador: "));
 
-        // Obtener los datos del enemigo
-        String enemyName = JOptionPane.showInputDialog("Ingrese el nombre del enemigo: ");
+        /*
+        Obtener los datos del enemigo
+         */
+        String enemyName = JOptionPane .showInputDialog("Ingrese el nombre del enemigo: ");
         int enemyHP = Integer.parseInt(JOptionPane.showInputDialog("Ingrese HP del enemigo: "));
         int enemyMaxHP = Integer.parseInt(JOptionPane.showInputDialog("Ingrese HP Máximo del enemigo: "));
         int enemyMP = Integer.parseInt(JOptionPane.showInputDialog("Ingrese MP del enemigo: "));
@@ -72,70 +131,39 @@ public class Game {
         int enemyCriticalHitChance = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Probabilidad de Golpe Crítico del enemigo: "));
         int enemyCriticalHitDamage = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Daño de Golpe Crítico del enemigo: "));
 
+        Map<Stats, Integer> playerStats = new HashMap<>();
+        playerStats.put(Stats.HP, playerHP);
+        playerStats.put(Stats.MAX_HP, playerMaxHP);
+        playerStats.put(Stats.MP, playerMP);
+        playerStats.put(Stats.MAX_MP, playerMaxMP);
+        playerStats.put(Stats.ATTACK, playerAttack);
+        playerStats.put(Stats.DEFENSE, playerDefense);
+        playerStats.put(Stats.SPEED, playerSpeed);
+        playerStats.put(Stats.DEXTERITY, playerDexterity);
+        playerStats.put(Stats.LUCK, playerLuck);
+        playerStats.put(Stats.ACCURACY, playerAccuracy);
+        playerStats.put(Stats.EVASION, playerEvasion);
+        playerStats.put(Stats.CRITICAL_HIT_CHANCE, playerCriticalHitChance);
+        playerStats.put(Stats.CRITICAL_HIT_DAMAGE, playerCriticalHitDamage);
 
-        Player player = new Player(playerName);
-        Enemy enemy = new Enemy(enemyName);
+        Map<Stats, Integer> enemyStats = new HashMap<>();
+        enemyStats.put(Stats.HP, enemyHP);
+        enemyStats.put(Stats.MAX_HP, enemyMaxHP);
+        enemyStats.put(Stats.MP, enemyMP);
+        enemyStats.put(Stats.MAX_MP, enemyMaxMP);
+        enemyStats.put(Stats.ATTACK, enemyAttack);
+        enemyStats.put(Stats.DEFENSE, enemyDefense);
+        enemyStats.put(Stats.SPEED, enemySpeed);
+        enemyStats.put(Stats.DEXTERITY, enemyDexterity);
+        enemyStats.put(Stats.LUCK, enemyLuck);
+        enemyStats.put(Stats.ACCURACY, enemyAccuracy);
+        enemyStats.put(Stats.EVASION, enemyEvasion);
+        enemyStats.put(Stats.CRITICAL_HIT_CHANCE, enemyCriticalHitChance);
+        enemyStats.put(Stats.CRITICAL_HIT_DAMAGE, enemyCriticalHitDamage);
 
-        //Mostrar los datos del jugador en una ventana JOption
-        String playerData = "Nombre: " + player.getName() + "\n";
-        playerData += "HP: " + player.getStats().get(Stats.HP) + "/" + player.getStats().get(Stats.MAX_HP) + "\n";
-        playerData += "MP: " + player.getStats().get(Stats.MP) + "/" + player.getStats().get(Stats.MAX_MP) + "\n";
-        playerData += "Ataque: " + player.getStats().get(Stats.ATTACK) + "\n";
-        playerData += "Defensa: " + player.getStats().get(Stats.DEFENSE) + "\n";
-        playerData += "Velocidad: " + player.getStats().get(Stats.SPEED) + "\n";
-        playerData += "Destreza: " + player.getStats().get(Stats.DEXTERITY) + "\n";
-        playerData += "Suerte: " + player.getStats().get(Stats.LUCK) + "\n";
-        playerData += "Precisión: " + player.getStats().get(Stats.ACCURACY) + "\n";
-        playerData += "Evasión: " + player.getStats().get(Stats.EVASION) + "\n";
-        playerData += "Probabilidad de Golpe Crítico: " + player.getStats().get(Stats.CRITICAL_HIT_CHANCE) + "\n";
-        playerData += "Daño de Golpe Crítico: " + player.getStats().get(Stats.CRITICAL_HIT_DAMAGE) + "\n";
-        JOptionPane.showMessageDialog(null, playerData, "Datos del Jugador", JOptionPane.INFORMATION_MESSAGE);
+        Player player = new Player(playerName, playerStats);
+        Enemy enemy = new Enemy(enemyName, enemyStats);
 
-        //Mostrar los datos del enemigo en una ventana JOption
-        String enemyData = "Nombre: " + enemy.getName() + "\n";
-        enemyData += "HP: " + enemy.getStats().get(Stats.HP) + "/" + enemy.getStats().get(Stats.MAX_HP) + "\n";
-        enemyData += "MP: " + enemy.getStats().get(Stats.MP) + "/" + enemy.getStats().get(Stats.MAX_MP) + "\n";
-        enemyData += "Ataque: " + enemy.getStats().get(Stats.ATTACK) + "\n";
-        enemyData += "Defensa: " + enemy.getStats().get(Stats.DEFENSE) + "\n";
-        enemyData += "Velocidad: " + enemy.getStats().get(Stats.SPEED) + "\n";
-        enemyData += "Destreza: " + enemy.getStats().get(Stats.DEXTERITY) + "\n";
-        enemyData += "Suerte: " + enemy.getStats().get(Stats.LUCK) + "\n";
-        enemyData += "Precisión: " + enemy.getStats().get(Stats.ACCURACY) + "\n";
-        enemyData += "Evasión: " + enemy.getStats().get(Stats.EVASION) + "\n";
-        enemyData += "Probabilidad de Golpe Crítico: " + enemy.getStats().get(Stats.CRITICAL_HIT_CHANCE) + "\n";
-        enemyData += "Daño de Golpe Crítico: " + enemy.getStats().get(Stats.CRITICAL_HIT_DAMAGE) + "\n";
-        JOptionPane.showMessageDialog(null, enemyData, "Datos del Enemigo", JOptionPane.INFORMATION_MESSAGE);
-
-        //Settear los stats del jugador y el enemigo
-        player.getStats().put(Stats.HP, playerHP);
-        player.getStats().put(Stats.MAX_HP, playerMaxHP);
-        player.getStats().put(Stats.MP, playerMP);
-        player.getStats().put(Stats.MAX_MP, playerMaxMP);
-        player.getStats().put(Stats.ATTACK, playerAttack);
-        player.getStats().put(Stats.DEFENSE, playerDefense);
-        player.getStats().put(Stats.SPEED, playerSpeed);
-        player.getStats().put(Stats.DEXTERITY, playerDexterity);
-        player.getStats().put(Stats.LUCK, playerLuck);
-        player.getStats().put(Stats.ACCURACY, playerAccuracy);
-        player.getStats().put(Stats.EVASION, playerEvasion);
-        player.getStats().put(Stats.CRITICAL_HIT_CHANCE, playerCriticalHitChance);
-        player.getStats().put(Stats.CRITICAL_HIT_DAMAGE, playerCriticalHitDamage);
-
-        enemy.getStats().put(Stats.HP, enemyHP);
-        enemy.getStats().put(Stats.MAX_HP, enemyMaxHP);
-        enemy.getStats().put(Stats.MP, enemyMP);
-        enemy.getStats().put(Stats.MAX_MP, enemyMaxMP);
-        enemy.getStats().put(Stats.ATTACK, enemyAttack);
-        enemy.getStats().put(Stats.DEFENSE, enemyDefense);
-        enemy.getStats().put(Stats.SPEED, enemySpeed);
-        enemy.getStats().put(Stats.DEXTERITY, enemyDexterity);
-        enemy.getStats().put(Stats.LUCK, enemyLuck);
-        enemy.getStats().put(Stats.ACCURACY, enemyAccuracy);
-        enemy.getStats().put(Stats.EVASION, enemyEvasion);
-        enemy.getStats().put(Stats.CRITICAL_HIT_CHANCE, enemyCriticalHitChance);
-        enemy.getStats().put(Stats.CRITICAL_HIT_DAMAGE, enemyCriticalHitDamage);
-
-        //Comenzar el juego con los stats seteados
         Game game = new Game(player, enemy);
         game.startGame();
     }
