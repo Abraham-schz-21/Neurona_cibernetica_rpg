@@ -12,7 +12,11 @@ public class Enemy {
     public Enemy(String name) {
         this.name = name;
         this.stats = new HashMap<>();
-        // Inicializar los stats del enemigo
+        initializeStats();
+    }
+
+    private void initializeStats() {
+        // Inicializa los stats del enemigo con valores predeterminados
         stats.put(Stats.HP, 80);
         stats.put(Stats.MAX_HP, 80);
         stats.put(Stats.MP, 30);
@@ -40,27 +44,27 @@ public class Enemy {
         return stats.get(Stats.HP) > 0;
     }
 
-    public void takeDamage(int damage) {
-        if (isAlive()) {
-            int hp = stats.get(Stats.HP);
-            hp -= damage;
-            stats.put(Stats.HP, Math.max(hp, 0));
-            System.out.println(name + " recibe " + damage + " puntos de daño.");
-        } else {
-            System.out.println(name + " ya está muerto.");
+    public void attack(Player player) {
+        int damage = stats.get(Stats.ATTACK) - player.getStats().get(Stats.DEFENSE);
+        if (damage < 0) {
+            damage = 0;
+        }
+
+        player.takeDamage(damage);
+        System.out.println(name + " atacó a " + player.getName() + " por " + damage + " de daño.");
+        if (!player.isAlive()) {
+            System.out.println(player.getName() + " ha sido derrotado.");
         }
     }
 
-    public void attack(Player player) {
-        if (isAlive()) {
-            int damage = stats.get(Stats.ATTACK);
-            // Calcula el daño final
-            damage = (int) (damage * (1 + (stats.get(Stats.CRITICAL_HIT_CHANCE) / 100.0)));
-            // Aplica el daño al jugador
-            player.takeDamage(damage);
-            System.out.println(name + " ataca a " + player.getName() + " por " + damage + " puntos de daño.");
-        } else {
-            System.out.println(name + " está muerto y no puede atacar.");
+    public void takeDamage(int damage) {
+        stats.put(Stats.HP, stats.get(Stats.HP) - damage);
+        if (stats.get(Stats.HP) < 0) {
+            stats.put(Stats.HP, 0);
+        }
+        System.out.println(name + " recibió " + damage + " de daño.");
+        if (!isAlive()) {
+            System.out.println(name + " ha sido derrotado.");
         }
     }
 }
