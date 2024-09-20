@@ -2,7 +2,7 @@ package rpg.entities;
 
 import rpg.entities.Enemy;
 import rpg.entities.Player;
-
+import javax.swing.JOptionPane;
 public class Game {
     private Player player;
     private Enemy enemy;
@@ -13,8 +13,8 @@ public class Game {
     }
 
     public void startGame() {
-        System.out.println("¡Bienvenido al juego de RPG!");
-        System.out.println("El jugador " + player.getName() + " se enfrenta a " + enemy.getName());
+        JOptionPane.showMessageDialog(null, "¡Bienvenido al juego de RPG!");
+        JOptionPane.showMessageDialog(null, "El jugador " + player.getName() + " se enfrenta a " + enemy.getName());
 
         while (player.isAlive() && enemy.isAlive()) {
             // Turno del jugador
@@ -30,9 +30,9 @@ public class Game {
         }
 
         if (player.isAlive()) {
-            System.out.println(player.getName() + " ha ganado la batalla!");
+            JOptionPane.showMessageDialog(null, player.getName() + " ha ganado la batalla!");
         } else {
-            System.out.println(enemy.getName() + " ha ganado la batalla!");
+            JOptionPane.showMessageDialog(null, enemy.getName() + " ha ganado la batalla!");
         }
     }
 
@@ -43,3 +43,4 @@ public class Game {
         game.startGame();
     }
 }
+

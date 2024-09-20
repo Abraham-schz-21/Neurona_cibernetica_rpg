@@ -4,6 +4,7 @@ import rpg.enums.Stats;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 public class Player {
     private String name;
@@ -51,9 +52,9 @@ public class Player {
         }
 
         enemy.takeDamage(damage);
-        System.out.println(name + " atacó a " + enemy.getName() + " por " + damage + " de daño.");
+        JOptionPane.showMessageDialog(null, name + " atacó a " + enemy.getName() + " por " + damage + " de daño.");
         if (!enemy.isAlive()) {
-            System.out.println(enemy.getName() + " ha sido derrotado.");
+            JOptionPane.showMessageDialog(null, enemy.getName() + " ha sido derrotado.");
         }
     }
 
@@ -62,9 +63,9 @@ public class Player {
         if (stats.get(Stats.HP) < 0) {
             stats.put(Stats.HP, 0);
         }
-        System.out.println(name + " recibió " + damage + " de daño.");
+        JOptionPane.showMessageDialog(null, name + " recibió " + damage + " de daño.");
         if (!isAlive()) {
-            System.out.println(name + " ha sido derrotado.");
+            JOptionPane.showMessageDialog(null, name + " ha sido derrotado.");
         }
     }
 }
