@@ -7,6 +7,7 @@ public class Game {
     private Player player;
     private Enemy enemy;
 
+
     public Game(Player player, Enemy enemy) {
         this.player = player;
         this.enemy = enemy;
