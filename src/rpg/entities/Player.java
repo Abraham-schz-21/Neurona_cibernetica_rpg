@@ -22,7 +22,7 @@ public class Player {
         stats.put(Stats.MAX_HP, 100);
         stats.put(Stats.MP, 50);
         stats.put(Stats.MAX_MP, 50);
-        stats.put(Stats.ATTACK, 15);
+        stats.put(Stats.ATTACK, 20);
         stats.put(Stats.DEFENSE, 10);
         stats.put(Stats.SPEED, 8);
         stats.put(Stats.DEXTERITY, 5);
@@ -53,6 +53,7 @@ public class Player {
 
         enemy.takeDamage(damage);
         JOptionPane.showMessageDialog(null, name + " atacó a " + enemy.getName() + " por " + damage + " de daño.");
+        JOptionPane.showMessageDialog(null, "Vida restante de " + enemy.getName() + ": " + enemy.getStats().get(Stats.HP));
         if (!enemy.isAlive()) {
             JOptionPane.showMessageDialog(null, enemy.getName() + " ha sido derrotado.");
         }
@@ -64,6 +65,7 @@ public class Player {
             stats.put(Stats.HP, 0);
         }
         JOptionPane.showMessageDialog(null, name + " recibió " + damage + " de daño.");
+        JOptionPane.showMessageDialog(null, "Vida restante de " + name + ": " + stats.get(Stats.HP));
         if (!isAlive()) {
             JOptionPane.showMessageDialog(null, name + " ha sido derrotado.");
         }

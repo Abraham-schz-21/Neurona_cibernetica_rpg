@@ -17,12 +17,12 @@ public class Enemy {
 
     private void initializeStats() {
         // Inicializa los stats del enemigo con valores predeterminados
-        stats.put(Stats.HP, 80);
-        stats.put(Stats.MAX_HP, 80);
+        stats.put(Stats.HP, 100);
+        stats.put(Stats.MAX_HP, 100);
         stats.put(Stats.MP, 30);
         stats.put(Stats.MAX_MP, 30);
-        stats.put(Stats.ATTACK, 12);
-        stats.put(Stats.DEFENSE, 8);
+        stats.put(Stats.ATTACK, 25);
+        stats.put(Stats.DEFENSE, 10);
         stats.put(Stats.SPEED, 6);
         stats.put(Stats.DEXTERITY, 3);
         stats.put(Stats.LUCK, 2);
@@ -52,6 +52,7 @@ public class Enemy {
 
         player.takeDamage(damage);
         System.out.println(name + " atacó a " + player.getName() + " por " + damage + " de daño.");
+        System.out.println("Vida restante de " + player.getName() + ": " + player.getStats().get(Stats.HP));
         if (!player.isAlive()) {
             System.out.println(player.getName() + " ha sido derrotado.");
         }
@@ -63,6 +64,7 @@ public class Enemy {
             stats.put(Stats.HP, 0);
         }
         System.out.println(name + " recibió " + damage + " de daño.");
+        System.out.println("Vida restante de " + name + ": " + stats.get(Stats.HP));
         if (!isAlive()) {
             System.out.println(name + " ha sido derrotado.");
         }
