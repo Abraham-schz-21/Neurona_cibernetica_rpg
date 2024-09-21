@@ -23,7 +23,9 @@ public class Game {
     }
 
     public void startGame() {
-        // Mostrar estadísticas del jugador
+        /* 
+        Mostrar estadísticas del jugador
+        */
         String playerStats = "Estadísticas del jugador:\n";
         playerStats += "Nombre: " + player.getName() + "\n";
         playerStats += "HP: " + player.getStats().get(Stats.HP) + "/" + player.getStats().get(Stats.MAX_HP) + "\n";
@@ -40,7 +42,9 @@ public class Game {
 
         JOptionPane.showMessageDialog(null, playerStats, "Estadísticas del jugador", JOptionPane.INFORMATION_MESSAGE);
 
-        // Mostrar estadísticas del enemigo
+        /* 
+        Mostrar estadísticas del enemigo
+        */
         String enemyStats = "Estadísticas del enemigo:\n";
         enemyStats += "Nombre: " + enemy.getName() + "\n";
         enemyStats += "HP: " + enemy.getStats().get(Stats.HP) + "/" + enemy.getStats().get(Stats.MAX_HP) + "\n";
@@ -58,14 +62,18 @@ public class Game {
         JOptionPane.showMessageDialog(null, enemyStats, "Estadísticas del enemigo", JOptionPane.INFORMATION_MESSAGE);
 
         while (player.isAlive() && enemy.isAlive()) {
-            // Turno del jugador
+            /* 
+            Turno del jugador
+            */
             player.attack(enemy);
             mostrarMensajeBatalla(player, enemy, true);
             if (!enemy.isAlive()) {
                 break;
             }
 
-            // Turno del enemigo
+            /*
+            Turno del enemigo
+                */
             enemy.attack(player);
             mostrarMensajeBatalla(player, enemy, false);
             if (!player.isAlive()) {
