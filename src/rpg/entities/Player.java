@@ -1,8 +1,8 @@
 package rpg.entities;
 
+import rpg.entities.enemies.Enemy;
 import rpg.enums.Stats;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**

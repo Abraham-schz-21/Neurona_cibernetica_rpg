@@ -1,5 +1,6 @@
 package rpg.entities;
 
+import rpg.entities.enemies.Enemy;
 import rpg.enums.Stats;
 import javax.swing.JOptionPane;
 import java.util.HashMap;
