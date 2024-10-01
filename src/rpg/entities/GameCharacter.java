@@ -29,10 +29,10 @@ public abstract class GameCharacter {
         if (damage > 0) {
             newHP = enemy.getStats().get(Stats.HP) - damage;
             enemy.getStats().put(Stats.HP, newHP);
-            message += String.format("%s attacks %s for %d damage! %s has %d HP left.%n",
+            message += String.format("%s ataca a %s por %d de daño! A %s le quedan %d HP.%n",
                     this.name, enemyName, damage, enemyName, newHP);
         } else {
-            message += String.format("%s attacks %s but does no damage! %s has %d HP left.%n",
+            message += String.format("%s ataca a %s pero no hace daño! A %s le quedan %d HP.%n",
                     this.name, enemyName, enemyName, newHP);
         }
         JOptionPane.showMessageDialog(null, message);

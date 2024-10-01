@@ -13,7 +13,7 @@ public class EliteGoblin extends Enemy {
 
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "The Elite Goblin drops a fine sword.");
+        JOptionPane.showMessageDialog(null, "El Goblin Élite suelta una espada fina.");
     }
 
     @Override
@@ -30,7 +30,7 @@ public class EliteGoblin extends Enemy {
         int damage = this.stats.get(Stats.ATTACK) - enemy.getStats().get(Stats.DEFENSE);
         int newHP = enemy.getStats().get(Stats.HP) - damage;
         enemy.getStats().put(Stats.HP, newHP);
-        JOptionPane.showMessageDialog(null, String.format("%s attacks %s for %d damage! %s has %d HP left.%n",
+        JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d de daño! A %s le quedan %d HP.%n",
                 this.name, enemyName, damage, enemyName, newHP));
     }
 }

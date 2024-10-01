@@ -11,7 +11,7 @@ public class Player extends GameCharacter {
     protected void initCharacter() {
         this.stats.put(Stats.MAX_HP, 100);
         this.stats.put(Stats.HP, 100);
-        this.stats.put(Stats.ATTACK, 10);
-        this.stats.put(Stats.DEFENSE, 5);
+        this.stats.put(Stats.ATTACK, 35);
+        this.stats.put(Stats.DEFENSE, 15);
     }
 }
