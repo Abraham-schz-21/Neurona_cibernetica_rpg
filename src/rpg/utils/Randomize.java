@@ -13,13 +13,31 @@ import rpg.entities.enemies.secret.ShadowAssassin;
 import javax.swing.*;
 import java.util.Random;
 
+/**
+ * Clase que proporciona métodos para generar números aleatorios.
+ *
+ * @author [AbrahamDell]
+ */
 public class Randomize {
+    /**
+     * Generador de números aleatorios.
+     */
     private static Random random = new Random();
 
+    /**
+     * Obtiene un booleano aleatorio.
+     *
+     * @return Booleano aleatorio.
+     */
     public static boolean getRandomBoolean() {
         return random.nextBoolean();
     }
 
+    /**
+     * Obtiene un enemigo aleatorio.
+     *
+     * @return Enemigo aleatorio.
+     */
     public static Enemy getRandomEnemy() {
         Enemy[] enemies = {
                 new BasicSlime(),

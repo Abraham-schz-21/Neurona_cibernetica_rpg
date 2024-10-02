@@ -7,7 +7,17 @@ import rpg.utils.Randomize;
 import javax.swing.*;
 import java.util.Random;
 
+/**
+ * Clase que representa el juego.
+ *
+ * @author [AbrahamDell]
+ */
 public class Game {
+    /**
+     * Método principal que inicia el juego.
+     *
+     * @param args Argumentos de la línea de comandos.
+     */
     public static void main(String[] args) {
         Player player = new Player("Zeus");
         Enemy enemy = Randomize.getRandomEnemy();

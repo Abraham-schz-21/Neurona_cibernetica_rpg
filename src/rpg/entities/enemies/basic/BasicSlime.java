@@ -6,16 +6,30 @@ import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
+/**
+ * Clase que representa a un Slime básico.
+ *
+ * @author [AbrahamDell]
+ */
 public class BasicSlime extends Enemy {
+    /**
+     * Constructor que inicializa el Slime básico.
+     */
     public BasicSlime() {
         super("Basic Slime", EnemyType.BASIC);
     }
 
+    /**
+     * Obtiene el botín del Slime básico.
+     */
     @Override
     public void getLoot() {
         JOptionPane.showMessageDialog(null, "El Slime básico suelta una pequeña cantidad de oro.");
     }
 
+    /**
+     * Inicializa las estadísticas del Slime básico.
+     */
     @Override
     protected void initCharacter() {
         this.stats.put(Stats.MAX_HP, 20);
@@ -24,6 +38,11 @@ public class BasicSlime extends Enemy {
         this.stats.put(Stats.DEFENSE, 1);
     }
 
+    /**
+     * Ataca a un enemigo.
+     *
+     * @param enemy Enemigo a atacar.
+     */
     @Override
     public void attack(GameCharacter enemy) {
         String enemyName = enemy.getName();

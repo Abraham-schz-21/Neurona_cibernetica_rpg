@@ -6,16 +6,30 @@ import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
+/**
+ * Clase que representa a un Slime anciano.
+ *
+ * @author [AbrahamDell]
+ */
 public class ElderSlime extends Enemy {
+    /**
+     * Constructor que inicializa el Slime anciano.
+     */
     public ElderSlime() {
         super("Elder Slime", EnemyType.MEDIUM);
     }
 
+    /**
+     * Obtiene el botín del Slime anciano.
+     */
     @Override
     public void getLoot() {
         JOptionPane.showMessageDialog(null, "El Slime Anciano suelta un amuleto mágico.");
     }
 
+    /**
+     * Inicializa las estadísticas del Slime anciano.
+     */
     @Override
     protected void initCharacter() {
         this.stats.put(Stats.MAX_HP, 40);
@@ -24,6 +38,11 @@ public class ElderSlime extends Enemy {
         this.stats.put(Stats.DEFENSE, 3);
     }
 
+    /**
+     * Ataca a un enemigo.
+     *
+     * @param enemy Enemigo a atacar.
+     */
     @Override
     public void attack(GameCharacter enemy) {
         String enemyName = enemy.getName();

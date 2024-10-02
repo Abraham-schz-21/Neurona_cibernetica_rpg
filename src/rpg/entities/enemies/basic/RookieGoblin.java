@@ -6,16 +6,30 @@ import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
+/**
+ * Clase que representa a un Goblin novato.
+ *
+ * @author [AbrahamDell]
+ */
 public class RookieGoblin extends Enemy {
+    /**
+     * Constructor que inicializa el Goblin novato.
+     */
     public RookieGoblin() {
         super("Rookie Goblin", EnemyType.BASIC);
     }
 
+    /**
+     * Obtiene el botín del Goblin novato.
+     */
     @Override
     public void getLoot() {
         JOptionPane.showMessageDialog(null, "El Goblin Novato suelta una espada oxidada.");
     }
 
+    /**
+     * Inicializa las estadísticas del Goblin novato.
+     */
     @Override
     protected void initCharacter() {
         this.stats.put(Stats.MAX_HP, 15);
@@ -24,6 +38,11 @@ public class RookieGoblin extends Enemy {
         this.stats.put(Stats.DEFENSE, 1);
     }
 
+    /**
+     * Ataca a un enemigo.
+     *
+     * @param enemy Enemigo a atacar.
+     */
     @Override
     public void attack(GameCharacter enemy) {
         String enemyName = enemy.getName();

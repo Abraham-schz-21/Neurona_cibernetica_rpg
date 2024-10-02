@@ -6,16 +6,30 @@ import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
+/**
+ * Clase que representa al Asesino de las Sombras.
+ *
+ * @author [AbrahamDell]
+ */
 public class ShadowAssassin extends Enemy {
+    /**
+     * Constructor que inicializa al Asesino de las Sombras.
+     */
     public ShadowAssassin() {
         super("Shadow Assassin", EnemyType.SECRET);
     }
 
+    /**
+     * Obtiene el botín del Asesino de las Sombras.
+     */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, " The Shadow Assassin drops a rare dagger.");
+        JOptionPane.showMessageDialog(null, "El Asesino de las Sombras deja caer una daga rara.");
     }
 
+    /**
+     * Inicializa las estadísticas del Asesino de las Sombras.
+     */
     @Override
     protected void initCharacter() {
         this.stats.put(Stats.MAX_HP, 180);
@@ -24,13 +38,18 @@ public class ShadowAssassin extends Enemy {
         this.stats.put(Stats.DEFENSE, 25);
     }
 
+    /**
+     * Ataca a un enemigo.
+     *
+     * @param enemy Enemigo a atacar.
+     */
     @Override
     public void attack(GameCharacter enemy) {
         String enemyName = enemy.getName();
         int damage = this.stats.get(Stats.ATTACK) - enemy.getStats().get(Stats.DEFENSE);
         int newHP = enemy.getStats().get(Stats.HP) - damage;
         enemy.getStats().put(Stats.HP, newHP);
-        JOptionPane.showMessageDialog(null, String.format("%s attacks %s for %d damage! %s has %d HP left.%n",
+        JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d daño! %s tiene %d HP restantes.%n",
                 this.name, enemyName, damage, enemyName, newHP));
     }
 }

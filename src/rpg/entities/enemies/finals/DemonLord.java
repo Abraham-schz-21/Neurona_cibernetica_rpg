@@ -6,16 +6,30 @@ import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
+/**
+ * Clase que representa al Señor Demonio.
+ *
+ * @author [AbrahamDell]
+ */
 public class DemonLord extends Enemy {
+    /**
+     * Constructor que inicializa al Señor Demonio.
+     */
     public DemonLord() {
         super("Demon Lord", EnemyType.FINAL);
     }
 
+    /**
+     * Obtiene el botín del Señor Demonio.
+     */
     @Override
     public void getLoot() {
         JOptionPane.showMessageDialog(null, "El Señor Demonio suelta un artefacto poderoso.");
     }
 
+    /**
+     * Inicializa las estadísticas del Señor Demonio.
+     */
     @Override
     protected void initCharacter() {
         this.stats.put(Stats.MAX_HP, 120);
@@ -24,6 +38,11 @@ public class DemonLord extends Enemy {
         this.stats.put(Stats.DEFENSE, 15);
     }
 
+    /**
+     * Ataca a un enemigo.
+     *
+     * @param enemy Enemigo a atacar.
+     */
     @Override
     public void attack(GameCharacter enemy) {
         String enemyName = enemy.getName();
