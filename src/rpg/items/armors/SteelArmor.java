@@ -1,5 +1,4 @@
 package rpg.items.armors;
-
 import rpg.items.armors.Armor;
 import rpg.enums.ItemType;
 
@@ -21,6 +20,5 @@ public class SteelArmor extends Armor {
         this.description = "Una armadura hecha de acero templado.";
         this.price = 100;
         this.itemType = ItemType.ARMOR;
-
     }
 }

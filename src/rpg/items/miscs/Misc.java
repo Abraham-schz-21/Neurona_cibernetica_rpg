@@ -1,5 +1,4 @@
 package rpg.items.miscs;
-
 import rpg.enums.ItemType;
 import rpg.items.Item;
 

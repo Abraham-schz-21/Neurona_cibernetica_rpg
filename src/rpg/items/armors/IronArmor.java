@@ -1,5 +1,4 @@
 package rpg.items.armors;
-
 import rpg.items.armors.Armor;
 import rpg.enums.ItemType;
 

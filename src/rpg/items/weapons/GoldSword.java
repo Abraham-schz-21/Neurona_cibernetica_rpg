@@ -1,5 +1,4 @@
 package rpg.items.weapons;
-
 import rpg.enums.ItemType;
 import rpg.items.weapons.Weapon;
 
@@ -21,6 +20,5 @@ public class GoldSword extends Weapon {
         this.description = "Una espada hecha de oro mitico.";
         this.price = 250;
         this.itemType = ItemType.WEAPON;
-
     }
 }

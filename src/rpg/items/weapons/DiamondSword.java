@@ -1,5 +1,4 @@
 package rpg.items.weapons;
-
 import rpg.enums.ItemType;
 import rpg.items.weapons.Weapon;
 
@@ -21,7 +20,6 @@ public class DiamondSword extends Weapon {
         this.description = "Una espada hecha de diamante genuino.";
         this.price = 300;
         this.itemType = ItemType.WEAPON;
-
     }
 }
 

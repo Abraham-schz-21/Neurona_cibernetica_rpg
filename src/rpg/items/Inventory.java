@@ -14,7 +14,6 @@ public class Inventory {
     private ArrayList<Item> items;
     private int capacity;
 
-
     /**
      * Constructor de la clase Inventory.
      *

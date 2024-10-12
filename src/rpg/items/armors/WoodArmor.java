@@ -1,5 +1,4 @@
 package rpg.items.armors;
-
 import rpg.enums.ItemType;
 import rpg.items.armors.Armor;
 
@@ -7,8 +6,6 @@ import rpg.items.armors.Armor;
  * Clase WoodArmor que representa una armadura de madera en el juego.
  */
 public class WoodArmor extends Armor {
-
-
 
     /**
      * Constructor de la clase WoodHelmet.
@@ -23,8 +20,5 @@ public class WoodArmor extends Armor {
         this.description = "Una armadura hecha de madera resistente.";
         this.price = 50;
         this.itemType = ItemType.ARMOR;
-
     }
-
-
 }

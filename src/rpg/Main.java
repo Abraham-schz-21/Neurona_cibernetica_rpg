@@ -39,19 +39,22 @@ public class Main {
 
         String armorMessage = "Armaduras en inventario:\n";
         for (Armor a : inventory.getArmors()) {
-            armorMessage += "Nombre: " + a.getName() + "\n Descripción: " + a.getDescription() + "\n Precio: " + a.getPrice() + "\n Tipo: " + a.getType() + "\n";
+            armorMessage += "Nombre: " + a.getName() + "\n Descripción: " + a.getDescription() + "\n Precio: " + a.getPrice() +
+                    "\n Tipo: " + a.getType() + "\n";
         }
         JOptionPane.showMessageDialog(null, armorMessage, "Armaduras", JOptionPane.INFORMATION_MESSAGE);
 
         String miscMessage = "Objetos misceláneos en inventario:\n";
         for (Misc m : inventory.getMiscs()) {
-            miscMessage += "Nombre: " + m.getName() + "\n Descripción: " + m.getDescription() + "\n Precio: " + m.getPrice() + "\n Tipo: " + m.getType() + "\n";
+            miscMessage += "Nombre: " + m.getName() + "\n Descripción: " + m.getDescription() + "\n Precio: " + m.getPrice() +
+                    "\n Tipo: " + m.getType() + "\n";
         }
         JOptionPane.showMessageDialog(null, miscMessage, "Misceláneos", JOptionPane.INFORMATION_MESSAGE);
 
         String weaponMessage = "Armas en inventario:\n";
         for (Weapon m : inventory.getWeapons()) {
-            weaponMessage += "Nombre: " + m.getName() + "\n Descripción: " + m.getDescription() + "\n Precio: " + m.getPrice() + "\n Tipo: " + m.getType() + "\n";
+            weaponMessage += "Nombre: " + m.getName() + "\n Descripción: " + m.getDescription() + "\n Precio: " + m.getPrice() +
+                    "\n Tipo: " + m.getType() + "\n";
         }
         JOptionPane.showMessageDialog(null, weaponMessage, "Armas", JOptionPane.INFORMATION_MESSAGE);
     }

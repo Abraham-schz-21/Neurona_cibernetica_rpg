@@ -3,7 +3,6 @@ package rpg.items;
 import rpg.entities.Player;
 import rpg.enums.Stats;
 import rpg.interfaces.Equipable;
-
 import java.util.HashMap;
 
 /**

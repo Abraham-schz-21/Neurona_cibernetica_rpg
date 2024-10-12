@@ -1,5 +1,4 @@
 package rpg.items.armors;
-
 import rpg.items.armors.Armor;
 import rpg.enums.ItemType;
 
@@ -21,6 +20,5 @@ public class GoldArmor extends Armor {
         this.description = "Una armadura hecha de oro mitico.";
         this.price = 200;
         this.itemType = ItemType.ARMOR;
-
     }
 }
