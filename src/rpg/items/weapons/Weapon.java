@@ -1,7 +1,6 @@
 package rpg.items.weapons;
 
 import rpg.enums.ItemType;
-import rpg.enums.WeaponType;
 import rpg.items.Equipment;
 
 /**
