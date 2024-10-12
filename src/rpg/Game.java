@@ -34,4 +34,6 @@ public class Game {
             JOptionPane.showMessageDialog(null, "Perdiste!");
         }
     }
+
+
 }
