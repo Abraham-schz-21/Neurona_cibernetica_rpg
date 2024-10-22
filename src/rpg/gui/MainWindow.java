@@ -11,57 +11,61 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
         setTitle("RPG Game");
-        setSize(WindowConstants.WINDOW_SIZE);  // Establecemos el tamaño de la ventana en 1280x720
+        setSize(WindowConstants.WINDOW_SIZE);  // Tamaño de la ventana
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
 
-        // Usamos BoxLayout para organizar los paneles verticalmente
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));  // Orientación vertical
+        setContentPane(mainPanel);
+        setVisible(true);
+    }
 
-        // Crear la barra de estado (status bar)
+    private void createUIComponents() {
+        // Usamos GridBagLayout para organizar los paneles
+        mainPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;  // Los componentes deben ocupar todo el espacio disponible
+        gbc.weightx = 1.0;  // Los paneles ocuparán todo el ancho de la ventana
+        gbc.gridx = 0;  // Todos los paneles estarán en la columna 0 (horizontalmente centrados)
+
+        // Crear el statusBar (Barra de estado)
         statusBar = new JPanel();
         statusBar.setBackground(Color.CYAN);
-        statusBar.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));  // Tamaño fijo de 1280x120
-        statusBar.setMaximumSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));  // Tamaño máximo para mantener el tamaño
+        gbc.gridy = 0;
+        gbc.weighty = 0.1;
+        statusBar.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));// Fijo a 1280x120
+        mainPanel.add(statusBar, gbc);
 
-        // Crear el panel del juego (game panel) con la imagen
+        // Crear el gamePanel con una imagen de fondo
         gamePanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Cargar la imagen y ajustarla al tamaño del panel
+                // Cargar la imagen de fondo y ajustarla al tamaño del panel
                 ImageIcon gameImage = new ImageIcon(getClass().getResource("/images/Captura de pantalla 2024-10-18 221150.png"));
                 Image image = gameImage.getImage();
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        gamePanel.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 480));  // Tamaño fijo de 1280x480
-        gamePanel.setMaximumSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 480));  // Tamaño máximo para mantener el tamaño
+        gbc.gridy = 1;
+        gbc.weighty = 0.6;
+        gamePanel.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 480));  // Fijo a 1280x480
+        mainPanel.add(gamePanel, gbc);
 
-        // Crear la barra de acciones (action bar)
+        // Crear el actionBar (Barra de acciones)
         actionBar = new JPanel();
         actionBar.setBackground(Color.CYAN);
-        actionBar.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));  // Tamaño fijo de 1280x120
-        actionBar.setMaximumSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));  // Tamaño máximo para mantener el tamaño
-
-        // Añadir los paneles al mainPanel en orden de arriba hacia abajo
-        mainPanel.add(statusBar);  // Barra de estado arriba
-        mainPanel.add(gamePanel);  // Panel del juego en el medio
-        mainPanel.add(actionBar);  // Barra de acciones abajo
-
-        // Establecer el mainPanel como el contenedor principal de la ventana
-        setContentPane(mainPanel);
-
-        setVisible(true);
+        gbc.gridy = 2;
+        gbc.weighty = 0.1;
+        actionBar.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));  // Fijo a 1280x120
+        mainPanel.add(actionBar, gbc);
     }
 
     public static void main(String[] args) {
         new MainWindow();
     }
-
 }
+
 
 
 
