@@ -11,12 +11,15 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
         setTitle("RPG Game");
-        setSize(WindowConstants.WINDOW_SIZE);  // Tamaño de la ventana
+        // Definir tamaño de ventana (1280x720)
+        setSize(WindowConstants.WINDOW_SIZE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
 
-        setContentPane(mainPanel);
+        createUIComponents();  // Asegurarse de que se creen los componentes
+
+        setContentPane(mainPanel);  // Establecer el mainPanel como el contenido de la ventana
         setVisible(true);
     }
 
@@ -28,43 +31,69 @@ public class MainWindow extends JFrame {
         gbc.weightx = 1.0;  // Los paneles ocuparán todo el ancho de la ventana
         gbc.gridx = 0;  // Todos los paneles estarán en la columna 0 (horizontalmente centrados)
 
-        // Crear el statusBar (Barra de estado)
-        statusBar = new JPanel();
-        statusBar.setBackground(Color.CYAN);
-        gbc.gridy = 0;
-        gbc.weighty = 0.1;
-        statusBar.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));// Fijo a 1280x120
-        mainPanel.add(statusBar, gbc);
+        // Crear el statusBar (Barra de estado) con una imagen de alta calidad
+        statusBar = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Crear el gamePanel con una imagen de fondo
+                // Cargar la imagen de fondo y ajustarla al tamaño del panel con alta calidad
+                ImageIcon statusImage = new ImageIcon(getClass().getResource("/images/Imagen_status_bar.png"));
+                Image image = statusImage.getImage();
+                g2d.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        gbc.gridy = 0;
+        gbc.weighty = 0.2;
+        mainPanel.add(statusBar, gbc);  // Añadir statusBar al mainPanel
+
+        // Crear el gamePanel con una imagen de alta calidad
         gamePanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Cargar la imagen de fondo y ajustarla al tamaño del panel
-                ImageIcon gameImage = new ImageIcon(getClass().getResource("/images/Captura de pantalla 2024-10-18 221150.png"));
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                // Cargar la imagen de fondo y ajustarla al tamaño del panel con alta calidad
+                ImageIcon gameImage = new ImageIcon(getClass().getResource("/images/Imagen_de_fondo_game_panel.png"));
                 Image image = gameImage.getImage();
-                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+                g2d.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
         };
         gbc.gridy = 1;
-        gbc.weighty = 0.6;
-        gamePanel.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 480));  // Fijo a 1280x480
-        mainPanel.add(gamePanel, gbc);
+        gbc.weighty = 0.45;  // Ajuste de tamaño del gamePanel
+        mainPanel.add(gamePanel, gbc);  // Añadir gamePanel al mainPanel
 
-        // Crear el actionBar (Barra de acciones)
-        actionBar = new JPanel();
-        actionBar.setBackground(Color.CYAN);
+        // Crear el actionBar (Barra de acciones) con una imagen de alta calidad
+        actionBar = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                // Cargar la imagen de fondo y ajustarla al tamaño del panel con alta calidad
+                ImageIcon actionImage = new ImageIcon(getClass().getResource("/images/imagen textura.png"));
+                Image image = actionImage.getImage();
+                g2d.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         gbc.gridy = 2;
-        gbc.weighty = 0.1;
-        actionBar.setPreferredSize(new Dimension(WindowConstants.WINDOW_SIZE.width, 120));  // Fijo a 1280x120
-        mainPanel.add(actionBar, gbc);
+        gbc.weighty = 0.35;  // Aumentar el tamaño de la actionBar (35% del total)
+        mainPanel.add(actionBar, gbc);  // Añadir actionBar al mainPanel
     }
 
     public static void main(String[] args) {
         new MainWindow();
     }
 }
+
 
 
 

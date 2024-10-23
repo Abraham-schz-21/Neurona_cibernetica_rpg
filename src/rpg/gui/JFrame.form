@@ -25,13 +25,13 @@
       <grid id="f4e83" binding="statusBar" custom-create="true" layout-manager="GridBagLayout">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="1280.0" weighty="120.0"/>
+          <gridbag weightx="1280.0" weighty="144.0"/>
         </constraints>
         <properties>
           <background color="-16711681"/>
-          <maximumSize width="1280" height="120"/>
-          <minimumSize width="1280" height="120"/>
-          <preferredSize width="1280" height="120"/>
+          <maximumSize width="1280" height="144"/>
+          <minimumSize width="1280" height="144"/>
+          <preferredSize width="1280" height="144"/>
         </properties>
         <border type="none"/>
         <children/>
@@ -39,13 +39,13 @@
       <grid id="59450" binding="gamePanel" custom-create="true" layout-manager="GridBagLayout">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="1280.0" weighty="480.0"/>
+          <gridbag weightx="1280.0" weighty="324.0"/>
         </constraints>
         <properties>
           <background color="-23296"/>
-          <maximumSize width="1280" height="480"/>
-          <minimumSize width="1280" height="480"/>
-          <preferredSize width="1280" height="480"/>
+          <maximumSize width="1280" height="324"/>
+          <minimumSize width="1280" height="324"/>
+          <preferredSize width="1280" height="324"/>
         </properties>
         <border type="none"/>
         <children/>
@@ -53,13 +53,13 @@
       <grid id="5c495" binding="actionBar" custom-create="true" layout-manager="GridBagLayout">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="1280.0" weighty="120.0"/>
+          <gridbag weightx="1280.0" weighty="252.0"/>
         </constraints>
         <properties>
           <background color="-16711681"/>
-          <maximumSize width="1280" height="120"/>
-          <minimumSize width="1280" height="120"/>
-          <preferredSize width="1280" height="120"/>
+          <maximumSize width="1280" height="252"/>
+          <minimumSize width="1280" height="252"/>
+          <preferredSize width="1280" height="252"/>
         </properties>
         <border type="none"/>
         <children/>
