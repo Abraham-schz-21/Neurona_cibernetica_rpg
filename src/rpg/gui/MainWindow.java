@@ -41,7 +41,7 @@ public class MainWindow extends JFrame {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
                 // Cargar la imagen de fondo y ajustarla al tamaño del panel con alta calidad
-                ImageIcon statusImage = new ImageIcon(getClass().getResource("/images/Imagen_status_bar.png"));
+                ImageIcon statusImage = new ImageIcon(getClass().getResource("/images/Imagen1.jpg"));
                 Image image = statusImage.getImage();
                 g2d.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
@@ -60,7 +60,7 @@ public class MainWindow extends JFrame {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
                 // Cargar la imagen de fondo y ajustarla al tamaño del panel con alta calidad
-                ImageIcon gameImage = new ImageIcon(getClass().getResource("/images/Imagen_de_fondo_game_panel.png"));
+                ImageIcon gameImage = new ImageIcon(getClass().getResource("/images/Imagen2.jpg"));
                 Image image = gameImage.getImage();
                 g2d.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
@@ -79,7 +79,7 @@ public class MainWindow extends JFrame {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
                 // Cargar la imagen de fondo y ajustarla al tamaño del panel con alta calidad
-                ImageIcon actionImage = new ImageIcon(getClass().getResource("/images/imagen textura.png"));
+                ImageIcon actionImage = new ImageIcon(getClass().getResource("/images/imagen3.jpg"));
                 Image image = actionImage.getImage();
                 g2d.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
