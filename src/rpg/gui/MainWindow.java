@@ -14,6 +14,7 @@ public class MainWindow extends JFrame {
     private BottomPanel bottomPanel;
     private JPanel mainPanel;
 
+
     public MainWindow() {
         initComponents();
     }
@@ -47,7 +48,7 @@ public class MainWindow extends JFrame {
         setContentPane(desktopPane);
         setTitle("RPG Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new Dimension(1280, 720)); // Asegura que la ventana sea visible
+        setSize(new Dimension(WindowConstants.WINDOW_SIZE)); // Asegura que la ventana sea visible
         setLocationRelativeTo(null); // Centrar la ventana en la pantalla
         setVisible(true); // Mostrar la ventana
         setResizable(false);
