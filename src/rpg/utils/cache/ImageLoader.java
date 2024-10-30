@@ -9,14 +9,14 @@ import java.io.IOException;
 public class ImageLoader {
 
     public static BufferedImage loadImage(String path) {
-
         try {
-
             return ImageIO.read(new File(path));
         } catch (IOException e) {
-            JOptionPane.showConfirmDialog(null, "Error al cargar la imagen: " + path,
-                    "Error", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al cargar la imagen: " + path,
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();  // Esto mostrará detalles del error en la consola
         }
         return null;
     }
 }
+
