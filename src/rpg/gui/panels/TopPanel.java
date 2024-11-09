@@ -2,6 +2,7 @@ package rpg.gui.panels;
 
 import rpg.gui.WindowConstants;
 import rpg.gui.buttons.*;
+import rpg.gui.labels.PortraitLabel;
 import rpg.utils.cache.ImageCache;
 
 import javax.swing.*;
@@ -25,8 +26,8 @@ public class TopPanel extends BackgroundPanel {
         JPanel section2 = new JPanel();
         JPanel section3 = new JPanel();
 
-        section1.setPreferredSize(new Dimension(100, 100));
-        section2.setPreferredSize(new Dimension(770, 100));
+        section1.setPreferredSize(new Dimension(120, 130));
+        section2.setPreferredSize(new Dimension(765, 100));
         section3.setPreferredSize(new Dimension(364, 115));
 
         // Hacer transparentes las secciones para mostrar la imagen de fondo
@@ -34,8 +35,13 @@ public class TopPanel extends BackgroundPanel {
         section2.setOpaque(false);
         section3.setOpaque(false);
 
+        // Crear el retrato del personaje
+        PortraitLabel portraitLabel = new PortraitLabel();
+        section1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        section1.add(portraitLabel); // Añadir el retrato a la sección 1
+
         // Agregar botones a la tercera sección
-        section3.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 7));
+        section3.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 3));
         InventoryButton inventoryButton = new InventoryButton();
         ShopButton shopButton = new ShopButton();
         BlacksmithButton blacksmithButton = new BlacksmithButton();
@@ -50,7 +56,7 @@ public class TopPanel extends BackgroundPanel {
 
         // Agregar las secciones al panel
         JPanel topPanelSections = new JPanel();
-        topPanelSections.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
+        topPanelSections.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         topPanelSections.add(section1);
         topPanelSections.add(section2);
         topPanelSections.add(section3);
