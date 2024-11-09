@@ -8,8 +8,8 @@ public interface WindowConstants {
     Dimension WINDOW_SIZE = new Dimension(1280, 720);
     int WINDOW_WIDTH = 1280;
     int TOP_HEIGHT = 130;
-    int MIDDLE_HEIGHT = 290;
-    int BOTTOM_HEIGHT = 300;
+    int MIDDLE_HEIGHT = 310;
+    int BOTTOM_HEIGHT = 280;
 
     Dimension TOP_DIMENSION = new Dimension(WINDOW_WIDTH, TOP_HEIGHT);
     Dimension MIDDLE_DIMENSION = new Dimension(WINDOW_WIDTH, MIDDLE_HEIGHT);

@@ -35,7 +35,7 @@ public class BottomPanel extends BackgroundPanel {
         section1.setLayout(new BoxLayout(section1, BoxLayout.Y_AXIS));
 
         // Configurar márgenes de sección1 para desplazar los botones
-        section1.setBorder(BorderFactory.createEmptyBorder(40, 30, 50, 50));  // margen superior e izquierdo
+        section1.setBorder(BorderFactory.createEmptyBorder(30, 30, 50, 50));  // margen superior e izquierdo
 
         // Crear los botones
         AttackButton attackButton = new AttackButton();
