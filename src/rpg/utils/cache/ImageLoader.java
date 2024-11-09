@@ -7,10 +7,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class ImageLoader {
-
     public static BufferedImage loadImage(String path) {
         try {
-            return ImageIO.read(new File(path));
+            File imageFile = new File(path);
+            if (!imageFile.exists()) {
+                System.out.println("Error: No se encontró la imagen en la ruta: " + path);
+                return null;
+            }
+            return ImageIO.read(imageFile);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar la imagen: " + path,
                     "Error", JOptionPane.ERROR_MESSAGE);

@@ -6,15 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ImageCache {
-
     private static final String IMAGE_PATH = "images/";
     private static final Map<String, BufferedImage> CACHE = new HashMap<>();
 
     public static BufferedImage addImage(String name, String path) {
-
         BufferedImage image;
         if (!CACHE.containsKey(name)) {
-
             image = ImageLoader.loadImage(IMAGE_PATH + path);
             CACHE.put(name, image);
         } else {
@@ -24,12 +21,10 @@ public class ImageCache {
     }
 
     public static BufferedImage getImage(String imageName) {
-
         return CACHE.getOrDefault(imageName, null);
     }
 
     public static ImageIcon getImageIcon(String imageName) {
-
         return new ImageIcon(getImage(imageName));
     }
 }
