@@ -5,7 +5,7 @@ import rpg.utils.cache.ImageCache;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
-
+import rpg.utils.cache.FontCache;
 public class HoverButtonUI extends BasicButtonUI {
     protected int width;
     protected int height;

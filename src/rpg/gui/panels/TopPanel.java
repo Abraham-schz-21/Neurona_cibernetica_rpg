@@ -3,6 +3,8 @@ package rpg.gui.panels;
 import rpg.gui.WindowConstants;
 import rpg.gui.buttons.*;
 import rpg.gui.labels.PortraitLabel;
+import rpg.gui.labels.BarLabel;
+import rpg.enums.BarType;
 import rpg.utils.cache.ImageCache;
 
 import javax.swing.*;
@@ -15,11 +17,11 @@ public class TopPanel extends BackgroundPanel {
     }
 
     @Override
-    protected void init() {
+    protected void init () {
         setLayout(new BorderLayout());
 
         // Establecer la imagen de fondo
-        setBackgroundImage(new ImageIcon(ImageCache.addImage("topPanel", "Imagen5.png")));
+        setBackgroundImage(new ImageIcon(ImageCache.addImage("topPanel ", "Imagen5.png")));
 
         // Crear las secciones y hacerlas transparentes
         JPanel section1 = new JPanel();
@@ -39,6 +41,17 @@ public class TopPanel extends BackgroundPanel {
         PortraitLabel portraitLabel = new PortraitLabel();
         section1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         section1.add(portraitLabel); // Añadir el retrato a la sección 1
+
+        // Crear las barras de estado
+        BarLabel lifeLabel = new BarLabel(100, 100, BarType.LIFE);
+        BarLabel magicLabel = new BarLabel(100, 100, BarType.MAGIC);
+        BarLabel expLabel = new BarLabel(350, 350, BarType.EXPERIENCE);
+
+        // Añadir las barras de estado a la sección 2
+        section2.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        section2.add(lifeLabel);
+        section2.add(magicLabel);
+        section2.add(expLabel);
 
         // Agregar botones a la tercera sección
         section3.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 3));

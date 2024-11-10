@@ -1,0 +1,34 @@
+package rpg.utils.cache;
+
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
+
+public class FontCache {
+
+    private static final Map<String, Font> cache = new HashMap<>();
+
+    public static Font addFont(String fontName, String fontPath) {
+        Font font;
+        if (!cache.containsKey(fontName)) {
+            font = FontLoader.loadFont(fontPath);
+            cache.put(fontName, font);
+        } else {
+            font = cache.get(fontName);
+        }
+        return font;
+    }
+
+    public static Font getFont(String fontName, int style, int size) {
+        return cache.getOrDefault(fontName, new Font("Arial", Font.PLAIN, 12)).deriveFont(style, size);
+    }
+
+    public static Font getFont(String fontName) {
+        return getFont(fontName, Font.PLAIN, 12);
+    }
+
+    public static Font getFont(String fontName, int size) {
+        return getFont(fontName, Font.PLAIN, size);
+    }
+}
+
