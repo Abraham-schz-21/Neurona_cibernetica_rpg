@@ -7,35 +7,35 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa al Señor Demonio.
+ * Clase que representa al Dragón.
  *
  * @author [AbrahamDell]
  */
-public class DemonLord extends Enemy {
+public class Hydra extends Enemy {
     /**
-     * Constructor que inicializa al Señor Demonio.
+     * Constructor que inicializa al Dragón.
      */
-    public DemonLord() {
-        super("Demon Lord", EnemyType.FINAL);
+    public Hydra() {
+        super("Hydra", EnemyType.FINAL);
     }
 
     /**
-     * Obtiene el botín del Señor Demonio.
+     * Obtiene el botín del Dragón.
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Señor Demonio suelta un artefacto poderoso.");
+        JOptionPane.showMessageDialog(null, "Hydra suelta una armadura de serpientes.");
     }
 
     /**
-     * Inicializa las estadísticas del Señor Demonio.
+     * Inicializa las estadísticas del Dragón.
      */
     @Override
     protected void initCharacter() {
-        this.stats.put(Stats.MAX_HP, 120);
-        this.stats.put(Stats.HP, 120);
-        this.stats.put(Stats.ATTACK, 20);
-        this.stats.put(Stats.DEFENSE, 15);
+        this.stats.put(Stats.MAX_HP, 100);
+        this.stats.put(Stats.HP, 100);
+        this.stats.put(Stats.ATTACK, 15);
+        this.stats.put(Stats.DEFENSE, 10);
     }
 
     /**

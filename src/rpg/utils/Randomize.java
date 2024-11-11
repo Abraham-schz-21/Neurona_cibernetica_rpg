@@ -1,16 +1,15 @@
 package rpg.utils;
 
 import rpg.entities.enemies.Enemy;
-import rpg.entities.enemies.basic.BasicSlime;
-import rpg.entities.enemies.basic.RookieGoblin;
-import rpg.entities.enemies.medium.EliteGoblin;
-import rpg.entities.enemies.medium.ElderSlime;
-import rpg.entities.enemies.finals.Dragon;
-import rpg.entities.enemies.finals.DemonLord;
-import rpg.entities.enemies.secret.AncientDragon;
-import rpg.entities.enemies.secret.ShadowAssassin;
+import rpg.entities.enemies.basic.Harpy;
+import rpg.entities.enemies.basic.Satyr;
+import rpg.entities.enemies.medium.Minotaur;
+import rpg.entities.enemies.medium.Cerberus;
+import rpg.entities.enemies.finals.Hydra;
+import rpg.entities.enemies.finals.Jellyfish;
+import rpg.entities.enemies.secret.Typhoon;
+import rpg.entities.enemies.secret.Cronos;
 
-import javax.swing.*;
 import java.util.Random;
 
 /**
@@ -40,14 +39,14 @@ public class Randomize {
      */
     public static Enemy getRandomEnemy() {
         Enemy[] enemies = {
-                new BasicSlime(),
-                new RookieGoblin(),
-                new EliteGoblin(),
-                new ElderSlime(),
-                new Dragon(),
-                new DemonLord(),
-                new AncientDragon(),
-                new ShadowAssassin()
+                new Harpy(),
+                new Satyr(),
+                new Minotaur(),
+                new Cerberus(),
+                new Hydra(),
+                new Jellyfish(),
+                new Typhoon(),
+                new Cronos()
         };
         return enemies[random.nextInt(enemies.length)];
     }

@@ -11,12 +11,12 @@ import rpg.enums.Stats;
  *
  * @author [AbrahamDell]
  */
-public class RookieGoblin extends Enemy {
+public class Satyr extends Enemy {
     /**
      * Constructor que inicializa el Goblin novato.
      */
-    public RookieGoblin() {
-        super("Rookie Goblin", EnemyType.BASIC);
+    public Satyr() {
+        super("Satyr", EnemyType.BASIC);
     }
 
     /**
@@ -24,7 +24,7 @@ public class RookieGoblin extends Enemy {
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Goblin Novato suelta una espada oxidada.");
+        JOptionPane.showMessageDialog(null, "Satyr suelta pocion de confusion.");
     }
 
     /**

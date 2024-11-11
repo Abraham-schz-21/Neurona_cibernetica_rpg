@@ -11,12 +11,12 @@ import rpg.enums.Stats;
  *
  * @author [AbrahamDell]
  */
-public class EliteGoblin extends Enemy {
+public class Minotaur extends Enemy {
     /**
      * Constructor que inicializa el Goblin élite.
      */
-    public EliteGoblin() {
-        super("Elite Goblin", EnemyType.MEDIUM);
+    public Minotaur() {
+        super("Minotaur", EnemyType.MEDIUM);
     }
 
     /**
@@ -24,7 +24,7 @@ public class EliteGoblin extends Enemy {
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Goblin Élite suelta una espada fina.");
+        JOptionPane.showMessageDialog(null, "El Minotaur suelta habilidad de fuerza.");
     }
 
     /**

@@ -11,12 +11,12 @@ import rpg.enums.Stats;
  *
  * @author [AbrahamDell]
  */
-public class AncientDragon extends Enemy {
+public class Typhoon extends Enemy {
     /**
      * Constructor que inicializa al Dragón antiguo.
      */
-    public AncientDragon() {
-        super("Ancient Dragon", EnemyType.SECRET);
+    public Typhoon() {
+        super("Typhoon", EnemyType.SECRET);
     }
 
     /**
@@ -24,7 +24,7 @@ public class AncientDragon extends Enemy {
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Dragón Antiguo deja caer una espada mítica.");
+        JOptionPane.showMessageDialog(null, "El Typhoon deja caer una espada electrica.");
     }
 
     /**

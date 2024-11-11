@@ -1,4 +1,4 @@
-package rpg.entities.enemies.medium;
+package rpg.entities.enemies.basic;
 import javax.swing.*;
 
 import rpg.entities.GameCharacter;
@@ -7,35 +7,35 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa a un Slime anciano.
+ * Clase que representa a un Slime básico.
  *
  * @author [AbrahamDell]
  */
-public class ElderSlime extends Enemy {
+public class Harpy extends Enemy {
     /**
-     * Constructor que inicializa el Slime anciano.
+     * Constructor que inicializa el Slime básico.
      */
-    public ElderSlime() {
-        super("Elder Slime", EnemyType.MEDIUM);
+    public Harpy() {
+        super("Harpy", EnemyType.BASIC);
     }
 
     /**
-     * Obtiene el botín del Slime anciano.
+     * Obtiene el botín del Slime básico.
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Slime Anciano suelta un amuleto mágico.");
+        JOptionPane.showMessageDialog(null, "Harpy suelta una pocion de envenenamiento.");
     }
 
     /**
-     * Inicializa las estadísticas del Slime anciano.
+     * Inicializa las estadísticas del Slime básico.
      */
     @Override
     protected void initCharacter() {
-        this.stats.put(Stats.MAX_HP, 40);
-        this.stats.put(Stats.HP, 40);
-        this.stats.put(Stats.ATTACK, 6);
-        this.stats.put(Stats.DEFENSE, 3);
+        this.stats.put(Stats.MAX_HP, 20);
+        this.stats.put(Stats.HP, 20);
+        this.stats.put(Stats.ATTACK, 2);
+        this.stats.put(Stats.DEFENSE, 1);
     }
 
     /**

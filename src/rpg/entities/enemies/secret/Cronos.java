@@ -11,12 +11,12 @@ import rpg.enums.Stats;
  *
  * @author [AbrahamDell]
  */
-public class ShadowAssassin extends Enemy {
+public class Cronos extends Enemy {
     /**
      * Constructor que inicializa al Asesino de las Sombras.
      */
-    public ShadowAssassin() {
-        super("Shadow Assassin", EnemyType.SECRET);
+    public Cronos() {
+        super("Cronos", EnemyType.SECRET);
     }
 
     /**
@@ -24,7 +24,7 @@ public class ShadowAssassin extends Enemy {
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Asesino de las Sombras deja caer una daga rara.");
+        JOptionPane.showMessageDialog(null, "Cronos deja caer una espada rara.");
     }
 
     /**

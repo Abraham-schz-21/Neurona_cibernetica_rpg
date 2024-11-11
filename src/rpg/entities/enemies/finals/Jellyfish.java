@@ -1,4 +1,4 @@
-package rpg.entities.enemies.basic;
+package rpg.entities.enemies.finals;
 import javax.swing.*;
 
 import rpg.entities.GameCharacter;
@@ -7,35 +7,35 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa a un Slime básico.
+ * Clase que representa al Señor Demonio.
  *
  * @author [AbrahamDell]
  */
-public class BasicSlime extends Enemy {
+public class Jellyfish extends Enemy {
     /**
-     * Constructor que inicializa el Slime básico.
+     * Constructor que inicializa al Señor Demonio.
      */
-    public BasicSlime() {
-        super("Basic Slime", EnemyType.BASIC);
+    public Jellyfish() {
+        super("Jellyfish", EnemyType.FINAL);
     }
 
     /**
-     * Obtiene el botín del Slime básico.
+     * Obtiene el botín del Señor Demonio.
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Slime básico suelta una pequeña cantidad de oro.");
+        JOptionPane.showMessageDialog(null, "Jellyfish suelta una espada mitica de piedra.");
     }
 
     /**
-     * Inicializa las estadísticas del Slime básico.
+     * Inicializa las estadísticas del Señor Demonio.
      */
     @Override
     protected void initCharacter() {
-        this.stats.put(Stats.MAX_HP, 20);
-        this.stats.put(Stats.HP, 20);
-        this.stats.put(Stats.ATTACK, 2);
-        this.stats.put(Stats.DEFENSE, 1);
+        this.stats.put(Stats.MAX_HP, 120);
+        this.stats.put(Stats.HP, 120);
+        this.stats.put(Stats.ATTACK, 20);
+        this.stats.put(Stats.DEFENSE, 15);
     }
 
     /**

@@ -1,4 +1,4 @@
-package rpg.entities.enemies.finals;
+package rpg.entities.enemies.medium;
 import javax.swing.*;
 
 import rpg.entities.GameCharacter;
@@ -7,35 +7,35 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa al Dragón.
+ * Clase que representa a un Slime anciano.
  *
  * @author [AbrahamDell]
  */
-public class Dragon extends Enemy {
+public class Cerberus extends Enemy {
     /**
-     * Constructor que inicializa al Dragón.
+     * Constructor que inicializa el Slime anciano.
      */
-    public Dragon() {
-        super("Dragon", EnemyType.FINAL);
+    public Cerberus() {
+        super("Cerberus", EnemyType.MEDIUM);
     }
 
     /**
-     * Obtiene el botín del Dragón.
+     * Obtiene el botín del Slime anciano.
      */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Dragón suelta una espada legendaria.");
+        JOptionPane.showMessageDialog(null, "El Cerbero suelta una espada de fuego.");
     }
 
     /**
-     * Inicializa las estadísticas del Dragón.
+     * Inicializa las estadísticas del Slime anciano.
      */
     @Override
     protected void initCharacter() {
-        this.stats.put(Stats.MAX_HP, 100);
-        this.stats.put(Stats.HP, 100);
-        this.stats.put(Stats.ATTACK, 15);
-        this.stats.put(Stats.DEFENSE, 10);
+        this.stats.put(Stats.MAX_HP, 40);
+        this.stats.put(Stats.HP, 40);
+        this.stats.put(Stats.ATTACK, 6);
+        this.stats.put(Stats.DEFENSE, 3);
     }
 
     /**
