@@ -7,20 +7,20 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa a un Goblin novato.
+ * Clase que representa a un Satyr.
  *
  * @author [AbrahamDell]
  */
 public class Satyr extends Enemy {
     /**
-     * Constructor que inicializa el Goblin novato.
+     * Constructor que inicializa el Satyr.
      */
     public Satyr() {
         super("Satyr", EnemyType.BASIC);
     }
 
     /**
-     * Obtiene el botín del Goblin novato.
+     * Obtiene el botín del Satyr.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Satyr extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Goblin novato.
+     * Inicializa las estadísticas del Satyr.
      */
     @Override
     protected void initCharacter() {

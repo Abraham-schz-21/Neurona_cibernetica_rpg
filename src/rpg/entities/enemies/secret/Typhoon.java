@@ -7,20 +7,20 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa al Dragón antiguo.
+ * Clase que representa al Typhoon.
  *
  * @author [AbrahamDell]
  */
 public class Typhoon extends Enemy {
     /**
-     * Constructor que inicializa al Dragón antiguo.
+     * Constructor que inicializa al Typhoon.
      */
     public Typhoon() {
         super("Typhoon", EnemyType.SECRET);
     }
 
     /**
-     * Obtiene el botín del Dragón antiguo.
+     * Obtiene el botín del Typhoon.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Typhoon extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Dragón antiguo.
+     * Inicializa las estadísticas del Typhoon.
      */
     @Override
     protected void initCharacter() {

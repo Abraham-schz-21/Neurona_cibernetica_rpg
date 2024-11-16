@@ -7,20 +7,20 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa a un Goblin élite.
+ * Clase que representa a un Minotaur.
  *
  * @author [AbrahamDell]
  */
 public class Minotaur extends Enemy {
     /**
-     * Constructor que inicializa el Goblin élite.
+     * Constructor que inicializa el Minotaur.
      */
     public Minotaur() {
         super("Minotaur", EnemyType.MEDIUM);
     }
 
     /**
-     * Obtiene el botín del Goblin élite.
+     * Obtiene el botín del Minotaur.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Minotaur extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Goblin élite.
+     * Inicializa las estadísticas del Minotaur.
      */
     @Override
     protected void initCharacter() {

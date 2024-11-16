@@ -7,20 +7,20 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa al Dragón.
+ * Clase que representa a Hydra.
  *
  * @author [AbrahamDell]
  */
 public class Hydra extends Enemy {
     /**
-     * Constructor que inicializa al Dragón.
+     * Constructor que inicializa a Hydra.
      */
     public Hydra() {
         super("Hydra", EnemyType.FINAL);
     }
 
     /**
-     * Obtiene el botín del Dragón.
+     * Obtiene el botín de Hydra.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Hydra extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Dragón.
+     * Inicializa las estadísticas de Hydra.
      */
     @Override
     protected void initCharacter() {

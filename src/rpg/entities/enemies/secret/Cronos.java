@@ -7,20 +7,20 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa al Asesino de las Sombras.
+ * Clase que representa a Cronos.
  *
  * @author [AbrahamDell]
  */
 public class Cronos extends Enemy {
     /**
-     * Constructor que inicializa al Asesino de las Sombras.
+     * Constructor que inicializa a Cronos.
      */
     public Cronos() {
         super("Cronos", EnemyType.SECRET);
     }
 
     /**
-     * Obtiene el botín del Asesino de las Sombras.
+     * Obtiene el botín de Cronos.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Cronos extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Asesino de las Sombras.
+     * Inicializa las estadísticas de Cronos.
      */
     @Override
     protected void initCharacter() {

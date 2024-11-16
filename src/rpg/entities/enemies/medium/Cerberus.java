@@ -7,20 +7,20 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa a un Slime anciano.
+ * Clase que representa a un Cerberus.
  *
  * @author [AbrahamDell]
  */
 public class Cerberus extends Enemy {
     /**
-     * Constructor que inicializa el Slime anciano.
+     * Constructor que inicializa el Cerberus.
      */
     public Cerberus() {
         super("Cerberus", EnemyType.MEDIUM);
     }
 
     /**
-     * Obtiene el botín del Slime anciano.
+     * Obtiene el botín del Cerberus.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Cerberus extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Slime anciano.
+     * Inicializa las estadísticas del Cerberus.
      */
     @Override
     protected void initCharacter() {

@@ -7,20 +7,20 @@ import rpg.enums.EnemyType;
 import rpg.enums.Stats;
 
 /**
- * Clase que representa al Señor Demonio.
+ * Clase que representa a Jellyfish.
  *
  * @author [AbrahamDell]
  */
 public class Jellyfish extends Enemy {
     /**
-     * Constructor que inicializa al Señor Demonio.
+     * Constructor que inicializa a Jellyfish.
      */
     public Jellyfish() {
         super("Jellyfish", EnemyType.FINAL);
     }
 
     /**
-     * Obtiene el botín del Señor Demonio.
+     * Obtiene el botín del Jellyfish.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Jellyfish extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Señor Demonio.
+     * Inicializa las estadísticas del Jellyfish.
      */
     @Override
     protected void initCharacter() {

@@ -13,14 +13,14 @@ import rpg.enums.Stats;
  */
 public class Harpy extends Enemy {
     /**
-     * Constructor que inicializa el Slime básico.
+     * Constructor que inicializa Harpy.
      */
     public Harpy() {
         super("Harpy", EnemyType.BASIC);
     }
 
     /**
-     * Obtiene el botín del Slime básico.
+     * Obtiene el botín de Harpy.
      */
     @Override
     public void getLoot() {
@@ -28,7 +28,7 @@ public class Harpy extends Enemy {
     }
 
     /**
-     * Inicializa las estadísticas del Slime básico.
+     * Inicializa las estadísticas de Harpy.
      */
     @Override
     protected void initCharacter() {
