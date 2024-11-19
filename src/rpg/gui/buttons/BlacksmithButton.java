@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class BlacksmithButton extends BaseButton {
     public BlacksmithButton() {
-        super("Herreria");
+        super("HERRERIA");
     }
 
     @Override

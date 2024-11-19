@@ -20,7 +20,7 @@ public class BarLabelUI extends BasicLabelUI {
         c.setOpaque(false);
         c.setBorder(null);
         c.setForeground(Color.WHITE);
-        c.setFont(new Font("Arial", Font.PLAIN, 14)); // Ajusta el tamaño de la fuente
+        c.setFont(new Font("Pixeled", Font.PLAIN, 10)); // Ajusta el tamaño de la fuente
         c.setVerticalAlignment(JLabel.BOTTOM);
         c.setHorizontalAlignment(JLabel.LEFT);
     }

@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class ExitButton extends BaseButton {
     public ExitButton() {
-        super("Salir");
+        super("SALIR");
     }
 
     @Override

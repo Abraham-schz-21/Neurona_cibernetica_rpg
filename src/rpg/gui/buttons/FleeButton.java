@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class FleeButton extends BaseButton {
     public FleeButton() {
-        super("Huir");
+        super("HUIR");
     }
 
     @Override

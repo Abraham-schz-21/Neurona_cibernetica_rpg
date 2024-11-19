@@ -12,4 +12,3 @@ public abstract class BaseButton extends JButton {
 
     protected abstract void initIcons();
 }
-

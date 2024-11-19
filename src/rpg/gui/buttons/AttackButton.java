@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class AttackButton extends BaseButton {
     public AttackButton() {
-        super("Atacar");
+        super("ATACAR");
     }
 
     @Override

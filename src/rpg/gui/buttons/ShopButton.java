@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class ShopButton extends BaseButton {
     public ShopButton() {
-        super("Tienda");
+        super("TIENDA");
     }
 
     @Override

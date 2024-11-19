@@ -16,7 +16,7 @@ public class HoverButtonUI extends BasicButtonUI {
     @Override
     protected void installDefaults(AbstractButton b) {
         initParts(b);
-        b.setFont(new Font("Arial", Font.PLAIN, 12)); // Tamaño de fuente Arial 11
+        b.setFont(new Font("Pixeled", Font.PLAIN, 7)); // Tamaño de fuente Arial 11
         b.setForeground(Color.BLACK);
         b.setDoubleBuffered(true);
         b.setOpaque(false);
@@ -67,7 +67,7 @@ public class HoverButtonUI extends BasicButtonUI {
         ImageCache.addImage("userHoverCenterSide", "boton1centerefecto.png");
         ImageCache.addImage("userHoverRightSide", "boton1rightefecto.png");
 
-        int buttonHeight = 32;
+        int buttonHeight = 36;
         int buttonWidth = Math.max(b.getFontMetrics(b.getFont()).stringWidth(b.getText()) + 16, 60);
 
         parts[0] = scaleImage(ImageCache.getImageIcon("userLeftSide"), -1, buttonHeight);

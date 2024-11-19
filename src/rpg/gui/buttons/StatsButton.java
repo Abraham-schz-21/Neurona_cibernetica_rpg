@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class StatsButton extends BaseButton {
     public StatsButton() {
-        super("Estadísticas");
+        super("STATS");
     }
 
     @Override

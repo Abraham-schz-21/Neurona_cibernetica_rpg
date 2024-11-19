@@ -1,11 +1,13 @@
 package rpg.gui.panels;
 
-import rpg.gui.WindowConstants;
 import rpg.gui.buttons.*;
 import rpg.gui.labels.PortraitLabel;
 import rpg.gui.labels.BarLabel;
+import rpg.gui.labels.NameLabel;
+import rpg.gui.labels.GoldLabel;
 import rpg.enums.BarType;
 import rpg.utils.cache.ImageCache;
+import rpg.gui.WindowConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,11 +19,11 @@ public class TopPanel extends BackgroundPanel {
     }
 
     @Override
-    protected void init () {
+    protected void init() {
         setLayout(new BorderLayout());
 
         // Establecer la imagen de fondo
-        setBackgroundImage(new ImageIcon(ImageCache.addImage("topPanel ", "Imagen5.png")));
+        setBackgroundImage(new ImageIcon(ImageCache.addImage("topPanel", "Imagen5.png")));
 
         // Crear las secciones y hacerlas transparentes
         JPanel section1 = new JPanel();
@@ -29,7 +31,7 @@ public class TopPanel extends BackgroundPanel {
         JPanel section3 = new JPanel();
 
         section1.setPreferredSize(new Dimension(120, 130));
-        section2.setPreferredSize(new Dimension(765, 100));
+        section2.setPreferredSize(new Dimension(765, 120));
         section3.setPreferredSize(new Dimension(364, 115));
 
         // Hacer transparentes las secciones para mostrar la imagen de fondo
@@ -48,13 +50,30 @@ public class TopPanel extends BackgroundPanel {
         BarLabel expLabel = new BarLabel(350, 350, BarType.EXPERIENCE);
 
         // Añadir las barras de estado a la sección 2
-        section2.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        section2.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 0));
         section2.add(lifeLabel);
         section2.add(magicLabel);
         section2.add(expLabel);
 
+        // Crear etiquetas para el nombre y el dinero
+        NameLabel nameLabel = new NameLabel("ZEUS LVL. 1");
+        GoldLabel goldLabel = new GoldLabel();
+
+        // Crear un panel para las etiquetas
+        JPanel labelPanel = new JPanel();
+        labelPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5)); // Alinear a la izquierda
+        labelPanel.setPreferredSize(new Dimension(314, 50)); // Tamaño de la sección de etiquetas
+        labelPanel.setOpaque(false); // Hacerlo transparente
+
+        // Añadir las etiquetas al panel
+        labelPanel.add(nameLabel);
+        labelPanel.add(goldLabel);
+
+        // Añadir el panel de etiquetas a la sección 2
+        section2.add(labelPanel);
+
         // Agregar botones a la tercera sección
-        section3.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 3));
+        section3.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 0));
         InventoryButton inventoryButton = new InventoryButton();
         ShopButton shopButton = new ShopButton();
         BlacksmithButton blacksmithButton = new BlacksmithButton();
@@ -80,4 +99,3 @@ public class TopPanel extends BackgroundPanel {
         add(topPanelSections, BorderLayout.CENTER);
     }
 }
-

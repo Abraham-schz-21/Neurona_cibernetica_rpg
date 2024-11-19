@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class SkillsButton extends BaseButton {
     public SkillsButton() {
-        super("Skills");
+        super("SKILLS");
     }
 
     @Override

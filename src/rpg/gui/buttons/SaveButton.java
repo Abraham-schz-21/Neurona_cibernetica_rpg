@@ -2,7 +2,7 @@ package rpg.gui.buttons;
 
 public class SaveButton extends BaseButton {
     public SaveButton() {
-        super("Guardar");
+        super("GUARDAR");
     }
 
     @Override
