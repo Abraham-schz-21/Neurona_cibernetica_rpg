@@ -39,6 +39,7 @@ public class MiddlePanel extends BackgroundPanel {
 
         playerSpriteLabel = new PlayerSpriteLabel();
         playerPanel.add(playerSpriteLabel, BorderLayout.SOUTH); // Centrar en la parte inferior
+        playerPanel.setLayout(new FlowLayout(FlowLayout.CENTER,5,90));
 
         // Panel derecho para el sprite del enemigo
         JPanel enemyPanel = new JPanel();
@@ -51,13 +52,17 @@ public class MiddlePanel extends BackgroundPanel {
         enemyLifeLabel = new BarLabel(enemy.getStats().get(Stats.HP), enemy.getStats().get(Stats.MAX_HP), BarType.LIFE);
 
         JPanel enemyInfoPanel = new JPanel();
-        enemyInfoPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        enemyInfoPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 15));
         enemyInfoPanel.setOpaque(false); // Hacer transparente
         enemyInfoPanel.add(enemyNameLabel);
         enemyInfoPanel.add(enemyLifeLabel);
 
+
         enemyPanel.add(enemySpriteLabel, BorderLayout.SOUTH); // Centrar en la parte inferior
-        enemyPanel.add(enemyInfoPanel, BorderLayout.CENTER); // Agregar información del enemigo
+        enemyPanel.add(enemyInfoPanel, BorderLayout.CENTER);// Agregar información del enemigo
+
+
+
 
         // Agregar los paneles al panel central
         add(playerPanel);
