@@ -5,6 +5,7 @@ import rpg.entities.GameCharacter;
 import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
+import rpg.utils.cache.ImageCache;
 
 /**
  * Clase que representa a Cronos.
@@ -16,7 +17,9 @@ public class Cronos extends Enemy {
      * Constructor que inicializa a Cronos.
      */
     public Cronos() {
-        super("Cronos", EnemyType.SECRET);
+        super("Cronos");
+        ImageCache.addImage("cronosSprite", "cronos.png"); // Asegúrate de que la ruta sea correcta
+        initCharacter(); // Inicializa las estadísticas del Satyr
     }
 
     /**
@@ -32,10 +35,13 @@ public class Cronos extends Enemy {
      */
     @Override
     protected void initCharacter() {
+        this.type = EnemyType.SECRET;
         this.stats.put(Stats.MAX_HP, 180);
         this.stats.put(Stats.HP, 180);
         this.stats.put(Stats.ATTACK, 30);
         this.stats.put(Stats.DEFENSE, 25);
+        this.stats.put(Stats.EXPERIENCE, 150);
+        this.stats.put(Stats.GOLD, 75);
     }
 
     /**
@@ -51,5 +57,10 @@ public class Cronos extends Enemy {
         enemy.getStats().put(Stats.HP, newHP);
         JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d daño! %s tiene %d HP restantes.%n",
                 this.name, enemyName, damage, enemyName, newHP));
+    }
+
+    @Override
+    public ImageIcon getSprite() {
+        return ImageCache.getImageIcon("cronosSprite");
     }
 }

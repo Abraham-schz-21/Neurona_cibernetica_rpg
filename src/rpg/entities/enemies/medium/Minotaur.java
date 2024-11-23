@@ -5,6 +5,7 @@ import rpg.entities.GameCharacter;
 import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
+import rpg.utils.cache.ImageCache;
 
 /**
  * Clase que representa a un Minotaur.
@@ -16,7 +17,9 @@ public class Minotaur extends Enemy {
      * Constructor que inicializa el Minotaur.
      */
     public Minotaur() {
-        super("Minotaur", EnemyType.MEDIUM);
+        super("Minotaur");
+        ImageCache.addImage("minotaurSprite", "minotaur.png"); // Asegúrate de que la ruta sea correcta
+        initCharacter(); // Inicializa las estadísticas del Satyr
     }
 
     /**
@@ -32,10 +35,13 @@ public class Minotaur extends Enemy {
      */
     @Override
     protected void initCharacter() {
+        this.type = EnemyType.MEDIUM;
         this.stats.put(Stats.MAX_HP, 30);
         this.stats.put(Stats.HP, 30);
         this.stats.put(Stats.ATTACK, 5);
         this.stats.put(Stats.DEFENSE, 2);
+        this.stats.put(Stats.EXPERIENCE, 100);
+        this.stats.put(Stats.GOLD, 45);
     }
 
     /**
@@ -51,5 +57,10 @@ public class Minotaur extends Enemy {
         enemy.getStats().put(Stats.HP, newHP);
         JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d de daño! A %s le quedan %d HP.%n",
                 this.name, enemyName, damage, enemyName, newHP));
+    }
+
+    @Override
+    public ImageIcon getSprite() {
+        return ImageCache.getImageIcon("minotaurSprite");
     }
 }

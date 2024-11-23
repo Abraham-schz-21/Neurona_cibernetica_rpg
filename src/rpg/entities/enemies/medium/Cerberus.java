@@ -5,6 +5,7 @@ import rpg.entities.GameCharacter;
 import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
+import rpg.utils.cache.ImageCache;
 
 /**
  * Clase que representa a un Cerberus.
@@ -16,8 +17,11 @@ public class Cerberus extends Enemy {
      * Constructor que inicializa el Cerberus.
      */
     public Cerberus() {
-        super("Cerberus", EnemyType.MEDIUM);
+        super("Cerberus");
+        ImageCache.addImage("cerberusSprite", "cerberus.png"); // Asegúrate de que la ruta sea correcta
+        initCharacter(); // Inicializa las estadísticas del Satyr
     }
+
 
     /**
      * Obtiene el botín del Cerberus.
@@ -32,10 +36,13 @@ public class Cerberus extends Enemy {
      */
     @Override
     protected void initCharacter() {
+        this.type = EnemyType.MEDIUM;
         this.stats.put(Stats.MAX_HP, 40);
         this.stats.put(Stats.HP, 40);
         this.stats.put(Stats.ATTACK, 6);
         this.stats.put(Stats.DEFENSE, 3);
+        this.stats.put(Stats.EXPERIENCE, 100);
+        this.stats.put(Stats.GOLD, 50);
     }
 
     /**
@@ -51,5 +58,10 @@ public class Cerberus extends Enemy {
         enemy.getStats().put(Stats.HP, newHP);
         JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d de daño! A %s le quedan %d HP.%n",
                 this.name, enemyName, damage, enemyName, newHP));
+    }
+
+    @Override
+    public ImageIcon getSprite() {
+        return ImageCache.getImageIcon("cerberusSprite");
     }
 }

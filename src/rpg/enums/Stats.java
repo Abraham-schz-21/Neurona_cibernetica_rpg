@@ -21,5 +21,9 @@ public enum Stats {
     /**
      * Defensa.
      */
-    DEFENSE
+    DEFENSE,
+
+    EXPERIENCE,
+
+    GOLD
 }

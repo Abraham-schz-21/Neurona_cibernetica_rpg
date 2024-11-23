@@ -12,7 +12,8 @@ public class NameLabel extends JLabel {
         setUI(new NameLabelUI());
         setPreferredSize(new Dimension(150, 40)); // Tamaño de la etiqueta
         setHorizontalAlignment(JLabel.LEFT); // Alinear a la izquierda
-        setVerticalAlignment(JLabel.CENTER); // Alinear verticalmente al centro
+        setVerticalAlignment(JLabel.CENTER);
+        setFont(new Font("Pixeled", Font.BOLD, 10));// Alinear verticalmente al centro
     }
 
 }

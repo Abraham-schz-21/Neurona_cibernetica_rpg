@@ -2,6 +2,7 @@ package rpg.utils;
 
 import rpg.entities.enemies.Enemy;
 import rpg.entities.enemies.basic.Harpy;
+/**
 import rpg.entities.enemies.basic.Satyr;
 import rpg.entities.enemies.medium.Minotaur;
 import rpg.entities.enemies.medium.Cerberus;
@@ -9,6 +10,7 @@ import rpg.entities.enemies.finals.Hydra;
 import rpg.entities.enemies.finals.Jellyfish;
 import rpg.entities.enemies.secret.Typhoon;
 import rpg.entities.enemies.secret.Cronos;
+ */
 
 import java.util.Random;
 
@@ -40,6 +42,7 @@ public class Randomize {
     public static Enemy getRandomEnemy() {
         Enemy[] enemies = {
                 new Harpy(),
+        /**
                 new Satyr(),
                 new Minotaur(),
                 new Cerberus(),
@@ -47,6 +50,7 @@ public class Randomize {
                 new Jellyfish(),
                 new Typhoon(),
                 new Cronos()
+         */
         };
         return enemies[random.nextInt(enemies.length)];
     }

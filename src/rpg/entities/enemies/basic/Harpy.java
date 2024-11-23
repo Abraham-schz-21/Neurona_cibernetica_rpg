@@ -5,9 +5,10 @@ import rpg.entities.GameCharacter;
 import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
+import rpg.utils.cache.ImageCache;
 
 /**
- * Clase que representa a un Slime básico.
+ * Clase que representa a un Harpy básico.
  *
  * @author [AbrahamDell]
  */
@@ -16,7 +17,26 @@ public class Harpy extends Enemy {
      * Constructor que inicializa Harpy.
      */
     public Harpy() {
-        super("Harpy", EnemyType.BASIC);
+        super("Harpy");
+        ImageCache.addImage("harpySprite", "harpy.png");
+    }
+    /**
+     * Inicializa las estadísticas de Harpy.
+     */
+    @Override
+    protected void initCharacter() {
+        this.type = EnemyType.BASIC;
+        this.stats.put(Stats.MAX_HP, 20);
+        this.stats.put(Stats.HP, 20);
+        this.stats.put(Stats.ATTACK, 2);
+        this.stats.put(Stats.DEFENSE, 1);
+        this.stats.put(Stats.EXPERIENCE, 20);
+        this.stats.put(Stats.GOLD, 25);
+    }
+
+    @Override
+    public ImageIcon getSprite() {
+        return ImageCache.getImageIcon("harpySprite");
     }
 
     /**
@@ -27,16 +47,7 @@ public class Harpy extends Enemy {
         JOptionPane.showMessageDialog(null, "Harpy suelta una pocion de envenenamiento.");
     }
 
-    /**
-     * Inicializa las estadísticas de Harpy.
-     */
-    @Override
-    protected void initCharacter() {
-        this.stats.put(Stats.MAX_HP, 20);
-        this.stats.put(Stats.HP, 20);
-        this.stats.put(Stats.ATTACK, 2);
-        this.stats.put(Stats.DEFENSE, 1);
-    }
+
 
     /**
      * Ataca a un enemigo.

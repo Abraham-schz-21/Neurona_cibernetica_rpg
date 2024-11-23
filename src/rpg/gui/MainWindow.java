@@ -1,5 +1,6 @@
 package rpg.gui;
 
+import rpg.entities.enemies.basic.Harpy;
 import rpg.gui.panels.BottomPanel;
 import rpg.gui.panels.MiddlePanel;
 import rpg.gui.panels.TopPanel;
@@ -50,5 +51,7 @@ public class MainWindow extends JFrame {
     public static void main(String[] args) {
         new MainWindow();
     }
+
+
 }
 

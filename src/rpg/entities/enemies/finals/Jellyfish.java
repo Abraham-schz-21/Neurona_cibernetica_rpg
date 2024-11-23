@@ -5,6 +5,7 @@ import rpg.entities.GameCharacter;
 import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
+import rpg.utils.cache.ImageCache;
 
 /**
  * Clase que representa a Jellyfish.
@@ -16,7 +17,9 @@ public class Jellyfish extends Enemy {
      * Constructor que inicializa a Jellyfish.
      */
     public Jellyfish() {
-        super("Jellyfish", EnemyType.FINAL);
+        super("Jellyfish");
+        ImageCache.addImage("jellyfishSprite", "jellyfish.png"); // Asegúrate de que la ruta sea correcta
+        initCharacter(); // Inicializa las estadísticas del Satyr
     }
 
     /**
@@ -32,10 +35,13 @@ public class Jellyfish extends Enemy {
      */
     @Override
     protected void initCharacter() {
+        this.type = EnemyType.FINAL;
         this.stats.put(Stats.MAX_HP, 120);
         this.stats.put(Stats.HP, 120);
         this.stats.put(Stats.ATTACK, 20);
         this.stats.put(Stats.DEFENSE, 15);
+        this.stats.put(Stats.EXPERIENCE, 50);
+        this.stats.put(Stats.GOLD, 30);
     }
 
     /**
@@ -51,5 +57,10 @@ public class Jellyfish extends Enemy {
         enemy.getStats().put(Stats.HP, newHP);
         JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d de daño! A %s le quedan %d HP.%n",
                 this.name, enemyName, damage, enemyName, newHP));
+    }
+
+    @Override
+    public ImageIcon getSprite() {
+        return ImageCache.getImageIcon("jellyfishSprite");
     }
 }
