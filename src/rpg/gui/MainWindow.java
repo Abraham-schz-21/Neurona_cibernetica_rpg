@@ -5,6 +5,7 @@ import rpg.gui.panels.BottomPanel;
 import rpg.gui.panels.MiddlePanel;
 import rpg.gui.panels.TopPanel;
 import rpg.gui.windows.StartWindow;
+import rpg.utils.GameProgressManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,6 +55,15 @@ public class MainWindow extends JFrame {
         startWindow.setVisible(true); // Muestra la ventana de carga de partida
     }
 
+    public void saveGame(int fileIndex, String progressData) {
+        GameProgressManager.saveProgress(fileIndex, progressData);
+    }
+
+    public void loadGame(int fileIndex) {
+        String progressData = GameProgressManager.loadProgress(fileIndex);
+        // Aquí debes procesar el progreso cargado y actualizar el estado del juego
+        System.out.println("Cargando progreso: " + progressData);
+    }
     public static void main(String[] args) {
         new MainWindow();
     }

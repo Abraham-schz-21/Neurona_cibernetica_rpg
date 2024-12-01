@@ -13,16 +13,10 @@ public class NewFileButton extends BaseButton {
         super("Nueva Partida " + fileIndex);
         this.fileIndex = fileIndex;
         this.startWindow = startWindow;
-        addActionListener(e -> createNewGame());
+        addActionListener(e -> startWindow.startNewGame(fileIndex));
 
         // Establecer un tamaño preferido para el botón
         setPreferredSize(new Dimension(150, 40)); // Ajusta el ancho y el alto según sea necesario
-    }
-
-    private void createNewGame() {
-        // Lógica para crear una nueva partida
-        System.out.println("Creando nueva partida " + fileIndex);
-        // Aquí puedes agregar la lógica para crear una nueva partida
     }
 
     @Override

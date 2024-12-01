@@ -13,16 +13,10 @@ public class LoadFileButton extends BaseButton {
         super("Cargar Partida " + fileIndex);
         this.fileIndex = fileIndex;
         this.startWindow = startWindow;
-        addActionListener(e -> loadGame());
+        addActionListener(e -> startWindow.loadGame(fileIndex));
 
         // Establecer un tamaño preferido para el botón
         setPreferredSize(new Dimension(150, 40)); // Ajusta el ancho y el alto según sea necesario
-    }
-
-    private void loadGame() {
-        // Lógica para cargar la partida
-        System.out.println("Cargando partida " + fileIndex);
-        // Aquí puedes agregar la lógica para cargar la partida
     }
 
     @Override

@@ -28,4 +28,9 @@ public abstract class Enemy extends GameCharacter {
     }
 
     public abstract ImageIcon getSprite();
+
+    public String getLife() {
+
+        return "";
+    }
 }

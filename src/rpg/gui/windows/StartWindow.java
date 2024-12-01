@@ -1,5 +1,6 @@
 package rpg.gui.windows;
 
+import rpg.gui.MainWindow;
 import rpg.gui.buttons.LoadFileButton;
 import rpg.gui.buttons.NewFileButton;
 import rpg.gui.panels.BackgroundPanel;
@@ -57,6 +58,23 @@ public class StartWindow extends JFrame {
         setLayout(new BorderLayout());
         add(titleLabel, BorderLayout.NORTH);
         add(mainPanel, BorderLayout.CENTER);
+    }
+
+    public void startNewGame(int fileIndex) {
+        // Aquí puedes guardar el progreso de la nueva partida
+        System.out.println("Iniciando nueva partida " + fileIndex);
+        MainWindow mainWindow = new MainWindow(); // Inicia la ventana principal
+        mainWindow.setVisible(true); // Muestra la ventana principal
+        // Guarda el índice de la partida en algún lugar para poder cargarlo más tarde
+        // Por ejemplo, podrías usar un archivo o una base de datos para almacenar el progreso
+    }
+
+    public void loadGame(int fileIndex) {
+        // Aquí puedes cargar el progreso de la partida
+        System.out.println("Cargando partida " + fileIndex);
+        MainWindow mainWindow = new MainWindow(); // Inicia la ventana principal
+        mainWindow.setVisible(true); // Muestra la ventana principal
+        // Carga el progreso del archivo correspondiente
     }
 
     public static void main(String[] args) {

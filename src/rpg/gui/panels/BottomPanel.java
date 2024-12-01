@@ -1,5 +1,8 @@
 package rpg.gui.panels;
 
+import rpg.entities.Player;
+import rpg.entities.enemies.Enemy;
+import rpg.gui.MainWindow;
 import rpg.gui.UIConstants;
 import rpg.gui.buttons.*;
 import rpg.gui.WindowConstants;

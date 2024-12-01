@@ -1,4 +1,11 @@
 package rpg.gui.panels;
+import rpg.entities.enemies.basic.Satyr;
+import rpg.entities.enemies.finals.Hydra;
+import rpg.entities.enemies.finals.Jellyfish;
+import rpg.entities.enemies.medium.Cerberus;
+import rpg.entities.enemies.medium.Minotaur;
+import rpg.entities.enemies.secret.Cronos;
+import rpg.entities.enemies.secret.Typhoon;
 import rpg.enums.Stats;
 import rpg.gui.labels.PlayerSpriteLabel;
 import rpg.gui.labels.EnemySpriteLabel;
@@ -8,6 +15,7 @@ import rpg.gui.labels.NameLabel;
 import rpg.gui.labels.BarLabel;
 import rpg.enums.BarType;
 import rpg.gui.WindowConstants;
+import rpg.utils.Randomize;
 import rpg.utils.cache.ImageCache;
 
 import javax.swing.*;
@@ -46,7 +54,8 @@ public class MiddlePanel extends BackgroundPanel {
         enemyPanel.setLayout(new BorderLayout());
         enemyPanel.setOpaque(false); // Hacer transparente
 
-        Enemy enemy = new Harpy(); // Crear un enemigo (puedes cambiar esto)
+        Enemy enemy = Randomize.getRandomEnemy();
+         // Crear un enemigo (puedes cambiar esto)
         enemySpriteLabel = new EnemySpriteLabel(enemy);
         enemyNameLabel = new NameLabel(enemy.getName());
         enemyLifeLabel = new BarLabel(enemy.getStats().get(Stats.HP), enemy.getStats().get(Stats.MAX_HP), BarType.LIFE);
