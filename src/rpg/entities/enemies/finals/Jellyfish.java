@@ -1,66 +1,106 @@
 package rpg.entities.enemies.finals;
-import javax.swing.*;
 
 import rpg.entities.GameCharacter;
 import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
+import rpg.exceptions.EnemyDeathException;
+import rpg.utils.Randomize;
 import rpg.utils.cache.ImageCache;
 
-/**
- * Clase que representa a Jellyfish.
- *
- * @author [AbrahamDell]
- */
+import javax.swing.*;
+
 public class Jellyfish extends Enemy {
-    /**
-     * Constructor que inicializa a Jellyfish.
-     */
+
     public Jellyfish() {
+
         super("Jellyfish");
-        ImageCache.addImage("jellyfishSprite", "jellyfish.png"); // Asegúrate de que la ruta sea correcta
-        initCharacter(); // Inicializa las estadísticas del Satyr
+        ImageCache.addImage("jellyfishSprite", "jellyfish.png");
     }
 
-    /**
-     * Obtiene el botín del Jellyfish.
-     */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "Jellyfish suelta una espada mitica de piedra.");
+        System.out.println("Drops a Medusa Head weapon as a secondary weapon and some coins.");
     }
 
-    /**
-     * Inicializa las estadísticas del Jellyfish.
-     */
     @Override
     protected void initCharacter() {
-        this.type = EnemyType.FINAL;
-        this.stats.put(Stats.MAX_HP, 120);
-        this.stats.put(Stats.HP, 120);
-        this.stats.put(Stats.ATTACK, 20);
+        this.type = EnemyType.BASIC;
+        this.stats.put(Stats.MAX_HP, 95);
+        this.stats.put(Stats.HP, 95);
+        this.stats.put(Stats.ATTACK, 40);
         this.stats.put(Stats.DEFENSE, 15);
         this.stats.put(Stats.EXPERIENCE, 50);
         this.stats.put(Stats.GOLD, 30);
     }
 
-    /**
-     * Ataca a un enemigo.
-     *
-     * @param enemy Enemigo a atacar.
-     */
     @Override
-    public void attack(GameCharacter enemy) {
+    public String attack(GameCharacter enemy) {
+        String message;
+        // Se elige un número aleatorio entre 1 y 100
+        int random = Randomize.getRandomInt(1, 100);
+        // 50% de probabilidad de atacar normalmente
+        // 25% de probabilidad de morder
+        // 25% de probabilidad de lanzar una roca
+        int attack = (random <= 40) ? 17 : (random <= 70) ? 15 : 1;
+        // Se elige el ataque a realizar
+        switch (attack) {
+            case 1:
+                try {
+                    message = throwsPetrifyingGaze(enemy);
+                } catch (EnemyDeathException e) {
+                    enemy.getStats().put(Stats.HP, 0);
+                    message = """
+                            Medusa fija su mirada en el jugador, 
+                            lanzando un rayo que ralentiza progresivamente al objetivo.
+                            ¡Has muerto!
+                            """;
+                }
+                break;
+            case 2:
+                try {
+                    message = stormOfSnakes(enemy);
+                } catch (EnemyDeathException e) {
+                    enemy.getStats().put(Stats.HP, 0);
+                    message = """
+                            Invoca serpientes mágicas que persiguen al jugador y explotan al contacto, 
+                            causando daño en área, te hace 17 de daño.
+                            ¡Has muerto!
+                            """;
+                }
+                break;
+            default:
+                message = ((GameCharacter) this).attack(enemy);
+                break;
+        }
+        return message;
+    }
+
+    protected String throwsPetrifyingGaze(GameCharacter enemy) throws EnemyDeathException {
+        int damage = 15;
+        int newHP = reduceHP(enemy, damage);
         String enemyName = enemy.getName();
-        int damage = this.stats.get(Stats.ATTACK) - enemy.getStats().get(Stats.DEFENSE);
-        int newHP = enemy.getStats().get(Stats.HP) - damage;
-        enemy.getStats().put(Stats.HP, newHP);
-        JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d de daño! A %s le quedan %d HP.%n",
-                this.name, enemyName, damage, enemyName, newHP));
+        String message = String.format("""
+                ¡%s lanza mirada petrificante a %s por %d de daño!
+                %s tiene %d HP restantes.
+                """, this.name, enemyName, damage, enemyName, newHP);
+        return message;
+    }
+
+    protected String stormOfSnakes(GameCharacter enemy) throws EnemyDeathException {
+        int damage = 17;
+        int newHP = reduceHP(enemy, damage);
+        String enemyName = enemy.getName();
+        String message = String.format("""
+                ¡%s lanza serpientes magicas a %s por %d de daño!
+                %s tiene %d HP restantes.
+                """, this.name, enemyName, damage, enemyName, newHP);
+        return message;
     }
 
     @Override
     public ImageIcon getSprite() {
+
         return ImageCache.getImageIcon("jellyfishSprite");
     }
 }

@@ -1,11 +1,12 @@
 package rpg.items;
 
 import rpg.enums.ItemType;
+import java.io.Serializable;
 
 /**
  * Clase Item que representa un objeto generico en el juego.
  */
-public abstract class Item {
+public abstract class Item implements Serializable {
 
     protected String name;
     protected String description;
@@ -15,8 +16,15 @@ public abstract class Item {
     /**
      * Constructor de la clase Item.
      */
-    public Item() {
+    public Item(String name, String description, int price, ItemType type) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.type = type;
         initItem();
+    }
+
+    public Item() {
     }
 
     /**

@@ -1,66 +1,107 @@
 package rpg.entities.enemies.medium;
-import javax.swing.*;
 
 import rpg.entities.GameCharacter;
 import rpg.entities.enemies.Enemy;
 import rpg.enums.EnemyType;
 import rpg.enums.Stats;
+import rpg.exceptions.EnemyDeathException;
+import rpg.utils.Randomize;
 import rpg.utils.cache.ImageCache;
 
-/**
- * Clase que representa a un Minotaur.
- *
- * @author [AbrahamDell]
- */
+import javax.swing.*;
+
 public class Minotaur extends Enemy {
-    /**
-     * Constructor que inicializa el Minotaur.
-     */
+
     public Minotaur() {
+
         super("Minotaur");
-        ImageCache.addImage("minotaurSprite", "minotaur.png"); // Asegúrate de que la ruta sea correcta
-        initCharacter(); // Inicializa las estadísticas del Satyr
+        ImageCache.addImage("minotaurSprite", "minotaur.png");
     }
 
-    /**
-     * Obtiene el botín del Minotaur.
-     */
     @Override
     public void getLoot() {
-        JOptionPane.showMessageDialog(null, "El Minotaur suelta habilidad de fuerza.");
+        System.out.println("The minotaur drops labyrinth axe and some coins.");
     }
 
-    /**
-     * Inicializa las estadísticas del Minotaur.
-     */
     @Override
     protected void initCharacter() {
-        this.type = EnemyType.MEDIUM;
-        this.stats.put(Stats.MAX_HP, 30);
-        this.stats.put(Stats.HP, 30);
-        this.stats.put(Stats.ATTACK, 5);
-        this.stats.put(Stats.DEFENSE, 2);
-        this.stats.put(Stats.EXPERIENCE, 100);
-        this.stats.put(Stats.GOLD, 45);
+        this.type = EnemyType.BASIC;
+        this.stats.put(Stats.MAX_HP, 45);
+        this.stats.put(Stats.HP, 45);
+        this.stats.put(Stats.ATTACK, 12);
+        this.stats.put(Stats.DEFENSE, 15);
+        this.stats.put(Stats.EXPERIENCE, 25);
+        this.stats.put(Stats.GOLD, 10);
     }
 
-    /**
-     * Ataca a un enemigo.
-     *
-     * @param enemy Enemigo a atacar.
-     */
     @Override
-    public void attack(GameCharacter enemy) {
+    public String attack(GameCharacter enemy) {
+        String message;
+        // Se elige un número aleatorio entre 1 y 100
+        int random = Randomize.getRandomInt(1, 100);
+        // 50% de probabilidad de atacar normalmente
+        // 25% de probabilidad de morder
+        // 25% de probabilidad de lanzar una roca
+        int attack = (random <= 50) ? 15 : (random <= 75) ? 12 : 1;
+        // Se elige el ataque a realizar
+        switch (attack) {
+            case 1:
+                try {
+                    message = throwHornBlow(enemy);
+                } catch (EnemyDeathException e) {
+                    enemy.getStats().put(Stats.HP, 0);
+                    message = """
+                            Utiliza sus cuernos para levantar al jugador por los aires y luego lanzarlo, 
+                            causando daño por caída al aterrizar, 
+                            te hace 12 de daño
+                            ¡Has muerto!
+                            """;
+                }
+                break;
+            case 2:
+                try {
+                    message = wildWhirlwind(enemy);
+                } catch (EnemyDeathException e) {
+                    enemy.getStats().put(Stats.HP, 0);
+                    message = """
+                            Gira rápidamente con su arma (hacha o maza), causando daño continuo 
+                            en un área circular a su alrededor, te hace 15 de daño.
+                            ¡Has muerto!
+                            """;
+                }
+                break;
+            default:
+                message = ((GameCharacter) this).attack(enemy);
+                break;
+        }
+        return message;
+    }
+
+    protected String throwHornBlow(GameCharacter enemy) throws EnemyDeathException {
+        int damage = 12;
+        int newHP = reduceHP(enemy, damage);
         String enemyName = enemy.getName();
-        int damage = this.stats.get(Stats.ATTACK) - enemy .getStats().get(Stats.DEFENSE);
-        int newHP = enemy.getStats().get(Stats.HP) - damage;
-        enemy.getStats().put(Stats.HP, newHP);
-        JOptionPane.showMessageDialog(null, String.format("%s ataca a %s por %d de daño! A %s le quedan %d HP.%n",
-                this.name, enemyName, damage, enemyName, newHP));
+        String message = String.format("""
+                ¡%s lanza ataque triple a %s por %d de daño!
+                %s tiene %d HP restantes.
+                """, this.name, enemyName, damage, enemyName, newHP);
+        return message;
+    }
+
+    protected String wildWhirlwind(GameCharacter enemy) throws EnemyDeathException {
+        int damage = 15;
+        int newHP = reduceHP(enemy, damage);
+        String enemyName = enemy.getName();
+        String message = String.format("""
+                ¡%s lanza un ataque circular a %s por %d de daño!
+                %s tiene %d HP restantes.
+                """, this.name, enemyName, damage, enemyName, newHP);
+        return message;
     }
 
     @Override
     public ImageIcon getSprite() {
+
         return ImageCache.getImageIcon("minotaurSprite");
     }
 }

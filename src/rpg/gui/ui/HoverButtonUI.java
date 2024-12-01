@@ -11,7 +11,7 @@ public class HoverButtonUI extends BasicButtonUI {
     protected int height;
     protected ImageIcon[] parts;
     protected ImageIcon[] partsHover;
-    private static final int MAX_BUTTON_WIDTH = 130; // Ajusta este valor para cambiar el ancho máximo
+    private static final int MAX_BUTTON_WIDTH = 180; // Ajusta este valor para cambiar el ancho máximo
 
     @Override
     protected void installDefaults(AbstractButton b) {

@@ -4,6 +4,7 @@ import rpg.entities.enemies.basic.Harpy;
 import rpg.gui.panels.BottomPanel;
 import rpg.gui.panels.MiddlePanel;
 import rpg.gui.panels.TopPanel;
+import rpg.gui.windows.StartWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,6 +47,11 @@ public class MainWindow extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+    }
+
+    private void showStartWindow() {
+        StartWindow startWindow = new StartWindow();
+        startWindow.setVisible(true); // Muestra la ventana de carga de partida
     }
 
     public static void main(String[] args) {

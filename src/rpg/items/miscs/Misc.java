@@ -1,24 +1,33 @@
 package rpg.items.miscs;
-import rpg.enums.ItemType;
+
 import rpg.items.Item;
 
-/**
- * Clase Misc que representa un objeto misceláneo en el juego.
- */
-public abstract class Misc extends Item {
+public class Misc extends Item {
+    private int quantity;
 
-    /**
-     * Constructor de la clase Misc.
-     *
-     * @param name          El nombre del objeto misceláneo.
-     * @param description  La descripción del objeto misceláneo.
-     * @param price         El precio del objeto misceláneo.
-     */
     public Misc(String name, String description, int price) {
         super();
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.type = ItemType.MISC;
+        this.quantity = 1; // Inicializar cantidad
+    }
+
+    @Override
+    protected void initItem() {
+        // Aquí puedes inicializar cualquier lógica adicional para el ítem si es necesario
+    }
+    public boolean isStackable() {
+        return true; // O lógica para determinar si es apilable
+    }
+
+    public void increaseQuantity(int amount) {
+        this.quantity += amount;
+    }
+
+    public void decreaseQuantity(int amount) {
+        this.quantity -= amount;
+        if (this.quantity < 0) this.quantity = 0;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }
