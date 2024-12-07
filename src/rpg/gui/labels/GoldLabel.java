@@ -41,7 +41,7 @@ public class GoldLabel extends JLabel {
 
         // Configurar la etiqueta
         setIcon(icon);
-        setText("1000"); // Cambia este valor por la cantidad de dinero del jugador
+        setText("30"); // Cambia este valor por la cantidad de dinero del jugador
         setFont(UIConstants.LABEL_FONT.deriveFont(Font.BOLD, 9f)); // Ajusta el tamaño de la fuente
         setForeground(Color.WHITE);
         setVerticalAlignment(JLabel.CENTER);

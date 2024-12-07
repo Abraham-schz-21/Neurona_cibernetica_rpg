@@ -6,6 +6,7 @@ import rpg.gui.MainWindow;
 import rpg.gui.UIConstants;
 import rpg.gui.buttons.*;
 import rpg.gui.WindowConstants;
+import rpg.gui.buttons.events.AttackEvent;
 import rpg.utils.cache.ImageCache;
 
 import javax.swing.*;
@@ -15,13 +16,16 @@ public class BottomPanel extends BackgroundPanel {
 
     private JTextArea textDisplay; // Área de texto para mostrar mensajes
     private JScrollPane textScroll; // ScrollPane para el JTextArea
+    private JButton attackButton;
+    private MainWindow game;
 
-    public BottomPanel() {
+    public BottomPanel(MainWindow game) {
         super(WindowConstants.BOTTOM_DIMENSION);
-        initComponents(); // Inicializar componentes
+        initComponents();// Inicializar componentes
     }
 
     private void initComponents() {
+
     }
 
     @Override
@@ -54,6 +58,8 @@ public class BottomPanel extends BackgroundPanel {
         FleeButton fleeButton = new FleeButton();
         SkillsButton skillsButton = new SkillsButton();
         StatsButton statsButton = new StatsButton();
+
+        attackButton.addActionListener(new AttackEvent(game));
 
         // Asegurarse de que los botones no se estiren ni deformen
         attackButton.setMaximumSize(attackButton.getPreferredSize());

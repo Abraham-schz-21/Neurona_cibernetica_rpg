@@ -51,8 +51,7 @@ public class Jellyfish extends Enemy {
                 } catch (EnemyDeathException e) {
                     enemy.getStats().put(Stats.HP, 0);
                     message = """
-                            Medusa fija su mirada en el jugador, 
-                            lanzando un rayo que ralentiza progresivamente al objetivo.
+                            Medusa fija su mirada en el jugador, lanzando un rayo que ralentiza progresivamente al objetivo.
                             ¡Has muerto!
                             """;
                 }

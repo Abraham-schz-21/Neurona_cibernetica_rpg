@@ -14,8 +14,14 @@ import java.awt.*;
 
 public class TopPanel extends BackgroundPanel {
 
+    private BarLabel lifeLabel;
+    private BarLabel magicLabel;
+    private BarLabel expLabel;
+    private GoldLabel goldLabel;
+    private NameLabel nameLabel;
     public TopPanel() {
         super(WindowConstants.TOP_DIMENSION);
+        init();
     }
 
     @Override
@@ -46,8 +52,8 @@ public class TopPanel extends BackgroundPanel {
 
         // Crear las barras de estado
         BarLabel lifeLabel = new BarLabel(100, 100, BarType.LIFE);
-        BarLabel magicLabel = new BarLabel(100, 100, BarType.MAGIC);
-        BarLabel expLabel = new BarLabel(350, 350, BarType.EXPERIENCE);
+        BarLabel magicLabel = new BarLabel(0, 100, BarType.MAGIC);
+        BarLabel expLabel = new BarLabel(0, 350, BarType.EXPERIENCE);
 
         // Añadir las barras de estado a la sección 2
         section2.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 0));
@@ -97,5 +103,25 @@ public class TopPanel extends BackgroundPanel {
         topPanelSections.setOpaque(false);
 
         add(topPanelSections, BorderLayout.CENTER);
+    }
+
+    public BarLabel getLifeLabel() {
+        return lifeLabel;
+    }
+
+    public BarLabel getMagicLabel() {
+        return magicLabel;
+    }
+
+    public BarLabel getExpLabel() {
+        return expLabel;
+    }
+
+    public GoldLabel getGoldLabel() {
+        return goldLabel;
+    }
+
+    public NameLabel getNameLabel() { // Método para obtener el NameLabel
+        return nameLabel;
     }
 }

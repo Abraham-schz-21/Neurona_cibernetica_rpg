@@ -77,6 +77,14 @@ public class MiddlePanel extends BackgroundPanel {
         add(playerPanel);
         add(enemyPanel);
     }
+    public void setEnemy(Enemy enemy) {
+        this.enemySpriteLabel.setEnemy(enemy);
+        this.enemyLifeLabel.setBarValue(enemy.getStats().get(Stats.HP)); // Establecer vida inicial del enemigo
+    }
+
+    public BarLabel getEnemyLifeLabel() {
+        return enemyLifeLabel;
+    }
 
     @Override
     protected void init() {
